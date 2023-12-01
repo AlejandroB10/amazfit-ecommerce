@@ -1,0 +1,37 @@
+
+DELIMITER //
+CREATE FUNCTION addUser(username varchar(25), pass varchar(25)) 
+RETURNS BOOLEAN
+BEGIN
+	DECLARE EXIT HANDLER FOR 1062 RETURN FALSE;#Si el usuario ya existe devolvera false
+    
+    #Introducimos el usuario
+    INSERT INTO usuari(nomUsuari, contrasenya, img_profile)
+    VALUES(
+    	username, pass, '../img/profile_picture_default.png'
+    );
+    RETURN TRUE;
+END;
+
+DELIMITER //
+CREATE PROCEDURE modifyUser(IN username varchar(25), IN description varchar(200), IN pass varchar(25))
+BEGIN
+UPDATE usuari SET usuari.descripcio = description, usuari.contrasenya = pass WHERE usuari.nomUsuari = username;
+END;
+
+DELIMITER //
+CREATE PROCEDURE modifyUserImgProfile(IN username varchar(25), IN img_profile VARCHAR(255))
+BEGIN
+    UPDATE usuari SET img_profile = img_profile WHERE nomUsuari = username;
+END;
+
+DELIMITER //
+CREATE PROCEDURE deleteUser(IN username varchar(25))
+BEGIN
+    DELETE FROM resposta WHERE resposta.nomUsuari = username;
+    DELETE FROM publicacio WHERE publicacio.nomUsuari = username;
+    DELETE FROM historia WHERE historia.nomUsuari = username;
+	  DELETE FROM missatge WHERE missatge.nomUsuariEmi = username OR missatge.nomUsuariRec = username;
+    DELETE FROM follow WHERE follow.nomUsuariSeguidor = username OR follow.nomUsuariSeguint = username;
+    DELETE FROM usuari WHERE usuari.nomUsuari = username;
+END;

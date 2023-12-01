@@ -39,3 +39,16 @@ Este proyecto es un sistema de comercio electrónico diseñado para la venta de 
 
    ```bash
    git clone https://github.com/AlejandroB10/BD2VA.git
+
+
+Docker 
+docker pull mysql:latest
+docker pull php:7.4-apache
+
+cd ~/BD2VA
+
+docker compose up -d
+
+localhost:3000
+
+docker exec -it BD2-mysql mysql
