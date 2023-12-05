@@ -83,10 +83,16 @@
             <div class="px-50 py-50 sm:px-20 sm:py-20 bg-white shadow-4 rounded-3">
               <div class="row y-gap-20">
                 <div class="col-12">
-                  <h1 class="text-22 fw-500">Crea una cuenta con tu correo electrónico</h1>
+                  <h1 class="text-22 fw-500">Crea una cuenta como proveedor</h1>
                   <p class="mt-10">Ya tienes una cuenta? <a href="login.php" class="text-blue-1">Inicia Sesión</a></p>
                 </div>
 
+                <div class="col-12">
+                  <div class="form-input ">
+                    <input type="text" required name="name_user" id="name_user">
+                    <label class="lh-1 text-14 text-light-1">CIF <span style="color: red;">*</span></label>
+                  </div>
+                </div>
                 <div class="col-12">
 
                   <div class="form-input ">
@@ -185,6 +191,7 @@
       </div>
       </div>
     </footer>
+
   </main>
 
   <!-- JavaScript -->
@@ -228,7 +235,7 @@
       alertify.error("Rellene el campo de contraseña", 3);
       return;
     }
-
+    return;
     $.post('userRegister.php', {
       user: name,
       last: last,
@@ -240,8 +247,8 @@
         const value = parseInt(JSON.parse(data)["0"]);
         console.log(value);
         if (value === 0) {
-          alertify.error("El email de usuario seleccionado ya existe", 3);
-          $('#email_user').addClass("border-2 border-red-500");
+          alertify.error("El nombre de usuario seleccionado ya existe", 3);
+          $('#user_name').addClass("border-2 border-red-500");
         } else {
           $.post("userLogin.php", {
             user: email,
@@ -254,7 +261,7 @@
                 $('#passw').addClass("border-2 border-red-500");
               } else {
                 alertify.success('Has iniciado sesion correctamente ' + JSON.parse(data).user);
-                location.href = "client_dash.php";
+                location.href = "../home.php";
               }
 
             }

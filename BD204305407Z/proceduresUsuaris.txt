@@ -1,14 +1,14 @@
-
 DELIMITER //
-CREATE FUNCTION addUser(username varchar(25), pass varchar(25)) 
+CREATE FUNCTION addUserCli(email varchar(100), password varchar(50), nom varchar (50), ape varchar(50)) 
 RETURNS BOOLEAN
+DETERMINISTIC
 BEGIN
-	DECLARE EXIT HANDLER FOR 1062 RETURN FALSE;#Si el usuario ya existe devolvera false
+	DECLARE EXIT HANDLER FOR 1062 RETURN FALSE; #Si el usuario ya existe devolvera false
     
     #Introducimos el usuario
-    INSERT INTO usuari(nomUsuari, contrasenya, img_profile)
+    INSERT INTO UsuCli(emailCli, password, nombre, apellido)
     VALUES(
-    	username, pass, '../img/profile_picture_default.png'
+    	email, password, nom, ape
     );
     RETURN TRUE;
 END;

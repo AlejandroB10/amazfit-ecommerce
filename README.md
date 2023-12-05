@@ -51,4 +51,4 @@ docker compose up -d
 
 localhost:3000
 
-docker exec -it BD2-mysql mysql
+docker exec -it BD2-mysql mysql -p {MYSQL_PASSWORD}
