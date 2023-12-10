@@ -1,3 +1,11 @@
+<?php
+session_start();
+$num_cart = 0;
+
+if (isset($_SESSION['carrito']['producto'])) {
+  $num_cart = count($_SESSION['carrito']['producto']);
+}
+?>
 <div class="preloader js-preloader">
   <div class="preloader__wrap">
     <div class="preloader__icon">
@@ -24,7 +32,7 @@
 
       <div class="col-auto">
         <div class="d-flex items-center">
-          <a href="index.html" class="header-logo mr-20" data-x="header-logo" data-x-toggle="is-logo-dark">
+          <a href="index.php" class="header-logo mr-20" data-x="header-logo" data-x-toggle="is-logo-dark">
             <img src="img/general/logo-light.svg" alt="logo icon">
             <img src="img/general/logo-dark.svg" alt="logo icon">
           </a>
@@ -44,149 +52,27 @@
               <div class="menu js-navList">
                 <ul class="menu__nav text-white -is-active">
 
-                  <li class="menu-item-has-children -has-mega-menu">
-                    <a data-barba href="#">
+                  <li class="menu-item-has-children">
+                    <a data-barba href="">
                       <span class="mr-10">Nutrición</span>
                       <i class="icon icon-chevron-sm-down"></i>
                     </a>
 
-                    <div class="mega">
-                      <div class="tabs -underline-2 js-tabs">
-                        <div class="tabs__controls row x-gap-40 y-gap-10 lg:x-gap-20 pb-30 js-tabs-controls">
+                    <ul class="subnav">
+                      <li class="subnav__backBtn js-nav-list-back">
+                        <a href="#"><i class="icon icon-chevron-sm-down"></i> Nutrición</a>
+                      </li>
 
-                          <div class="col-auto">
-                            <button class="tabs__button text-light-1 fw-500 js-tabs-button is-tab-el-active" data-tab-target=".-tab-item-1">Creatina</button>
-                          </div>
+                      <li><a href="BD204305407Z/categorias.php?nomCat=creatina">Creatina</a></li>
 
-                          <div class="col-auto">
-                            <button class="tabs__button text-light-1 fw-500 js-tabs-button " data-tab-target=".-tab-item-2">Proteína</button>
-                          </div>
+                      <li><a href="BD204305407Z/categorias.php?nomCat=proteina">Proteína</a></li>
 
-                          <div class="col-auto">
-                            <button class="tabs__button text-light-1 fw-500 js-tabs-button " data-tab-target=".-tab-item-3">Pre Workout</button>
-                          </div>
+                      <li><a href="BD204305407Z/categorias.php?nomCat=pre_workout">Pre Workout</a></li>
 
-                          <div class="col-auto">
-                            <button class="tabs__button text-light-1 fw-500 js-tabs-button " data-tab-target=".-tab-item-4">Energía</button>
-                          </div>
-                        </div>
+                      <li><a href="BD204305407Z/categorias.php?nomCat=energia">Energía</a></li>
 
-                        <div class="tabs__content js-tabs-content">
-                          <div class="tabs__pane -tab-item-1 is-tab-el-active">
-                            <div class="mega__content">
-                              <div class="mega__grid">
+                    </ul>
 
-                                <div class="mega__item">
-                                  <div class="text-15 fw-500">Creatina</div>
-                                  <div class="y-gap-5 text-15 pt-5">
-
-                                    <div><a href="hotel-list-1.html">Creatina Monohidrato</a></div>
-
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div class="mega__image d-flex relative">
-                                <img src="#" data-src="img/backgrounds/7.png" alt="image" class="rounded-4 js-lazy">
-
-                                <div class="absolute w-full h-full px-30 py-24">
-                                  <div class="text-22 fw-500 lh-15 text-white">Things to do on <br> your trip</div>
-                                  <button class="button h-50 px-30 -blue-1 text-dark-1 bg-white mt-20">Experinces</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="tabs__pane -tab-item-2">
-                            <div class="mega__content">
-                              <div class="mega__grid">
-
-                                <div class="mega__item">
-                                  <div class="text-15 fw-500">Proteína</div>
-                                  <div class="y-gap-5 text-15 pt-5">
-
-                                    <div><a href="tour-list-1.html">Proteína Whey</a></div>
-
-                                    <div><a href="tour-grid-1.html">Diet Proteína</a></div>
-
-                                    <div><a href="tour-grid-1.html">Proteína Vegana</a></div>
-
-                                  </div>
-                                </div>
-
-                              </div>
-
-                              <div class="mega__image d-flex relative">
-                                <img src="img/backgrounds/7.png" alt="image" class="rounded-4">
-
-                                <div class="absolute w-full h-full px-30 py-24">
-                                  <div class="text-22 fw-500 lh-15 text-white">Things to do on <br> your trip</div>
-                                  <button class="button h-50 px-30 -blue-1 text-dark-1 bg-white mt-20">Experinces</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="tabs__pane -tab-item-3">
-                            <div class="mega__content">
-                              <div class="mega__grid">
-
-                                <div class="mega__item">
-                                  <div class="text-15 fw-500">Pre Workout</div>
-                                  <div class="y-gap-5 text-15 pt-5">
-
-                                    <div><a href="activity-list-1.html">Suplemento Pre Workout</a></div>
-
-                                    <div><a href="activity-grid-1.html">Sin cafeína</a></div>
-
-                                  </div>
-                                </div>
-
-
-                              </div>
-
-                              <div class="mega__image d-flex relative">
-                                <img src="img/backgrounds/7.png" alt="image" class="rounded-4">
-
-                                <div class="absolute w-full h-full px-30 py-24">
-                                  <div class="text-22 fw-500 lh-15 text-white">Things to do on <br> your trip</div>
-                                  <button class="button h-50 px-30 -blue-1 text-dark-1 bg-white mt-20">Experinces</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="tabs__pane -tab-item-4">
-                            <div class="mega__content">
-                              <div class="mega__grid">
-
-                                <div class="mega__item">
-                                  <div class="text-15 fw-500">Energía</div>
-                                  <div class="y-gap-5 text-15 pt-5">
-
-                                    <div><a href="rental-list-1.html">Barritas Energéticas</a></div>
-
-                                    <div><a href="rental-grid-1.html">Geles Energéticos</a></div>
-
-                                    <div><a href="rental-grid-1.html">Bebidas Energéticas</a></div>
-
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div class="mega__image d-flex relative">
-                                <img src="img/backgrounds/7.png" alt="image" class="rounded-4">
-
-                                <div class="absolute w-full h-full px-30 py-24">
-                                  <div class="text-22 fw-500 lh-15 text-white">Things to do on <br> your trip</div>
-                                  <button class="button h-50 px-30 -blue-1 text-dark-1 bg-white mt-20">Experinces</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                   </li>
 
                   <li class="menu-item-has-children">
@@ -200,15 +86,15 @@
                         <a href="#"><i class="icon icon-chevron-sm-down"></i> Hombre</a>
                       </li>
 
-                      <li><a href="index.html">Camiseta</a></li>
+                      <li><a href="BD204305407Z/categorias.php?nomCat=camisetaH">Camiseta</a></li>
 
-                      <li><a href="home-2.html">Tirantes</a></li>
+                      <li><a href="BD204305407Z/categorias.php?nomCat=tirantes">Tirantes</a></li>
 
-                      <li><a href="home-3.html">Sudaderas</a></li>
+                      <li><a href="BD204305407Z/categorias.php?nomCat=sudaderaH">Sudaderas</a></li>
 
-                      <li><a href="home-4.html">Pantalónes cortos</a></li>
+                      <li><a href="BD204305407Z/categorias.php?nomCat=pantalon_corto">Pantalónes cortos</a></li>
 
-                      <li><a href="home-5.html">Pantalones largos</a></li>
+                      <li><a href="BD204305407Z/categorias.php?nomCat=pantalon_largo">Pantalones largos</a></li>
 
                     </ul>
 
@@ -225,15 +111,15 @@
                         <a href="#"><i class="icon icon-chevron-sm-down"></i> Mujer</a>
                       </li>
 
-                      <li><a href="index.html">Camiseta</a></li>
+                      <li><a href="BD204305407Z/categorias.php?nomCat=camisetaM">Camiseta</a></li>
 
-                      <li><a href="home-2.html">Crop Tops</a></li>
+                      <li><a href="BD204305407Z/categorias.php?nomCat=crop_top">Crop Tops</a></li>
 
-                      <li><a href="home-3.html">Sudaderas</a></li>
+                      <li><a href="BD204305407Z/categorias.php?nomCat=sudadera">Sudaderas</a></li>
 
-                      <li><a href="home-4.html">Pantalónes cortos</a></li>
+                      <li><a href="BD204305407Z/categorias.php?nomCat=pantalon_corto">Pantalónes cortos</a></li>
 
-                      <li><a href="home-5.html">Leggins</a></li>
+                      <li><a href="BD204305407Z/categorias.php?nomCat=leggins">Leggins</a></li>
 
                     </ul>
 
@@ -249,103 +135,18 @@
                         <a href="#"><i class="icon icon-chevron-sm-down"></i> Accesorios</a>
                       </li>
 
-                      <li><a href="index.html">Cascos</a></li>
+                      <li><a href="BD204305407Z/categorias.php?nomCat=cascos">Cascos</a></li>
 
-                      <li><a href="home-5.html">Gorras</a></li>
+                      <li><a href="BD204305407Z/categorias.php?nomCat=gorras">Gorras</a></li>
 
-                      <li><a href="home-3.html">Mochilas</a></li>
+                      <li><a href="BD204305407Z/categorias.php?nomCat=mochilas">Mochilas</a></li>
 
-                      <li><a href="home-5.html">Calcetines</a></li>
+                      <li><a href="BD204305407Z/categorias.php?nomCat=calcetines">Calcetines</a></li>
 
-                      <li><a href="home-4.html">Equipamiento</a></li>
-
-                      <li><a href="home-2.html">Chanclas</a></li>
+                      <li><a href="BD204305407Z/categorias.php?nomCat=chanclas">Chanclas</a></li>
 
                     </ul>
-
                   </li>
-                      <!-- Mobile -->
-                    <ul class="subnav mega-mobile">
-                      <li class="subnav__backBtn js-nav-list-back">
-                        <a href="#"><i class="icon icon-chevron-sm-down"></i> Nutrición</a>
-                      </li>
-
-                      <li class="menu-item-has-children">
-                        <a data-barba href="#">
-                          <span class="mr-10">Creatina</span>
-                          <i class="icon icon-chevron-sm-down"></i>
-                        </a>
-
-                        <ul class="subnav">
-                          <li class="subnav__backBtn js-nav-list-back">
-                            <a href="#"><i class="icon icon-chevron-sm-down"></i> Creatina</a>
-                          </li>
-
-
-                          <li><a href="hotel-list-1.html">Creatina Monohidrato</a></li>
-
-                        </ul>
-                      </li>
-
-                      <li class="menu-item-has-children">
-                        <a data-barba href="#">
-                          <span class="mr-10">Proteína</span>
-                          <i class="icon icon-chevron-sm-down"></i>
-                        </a>
-
-                        <ul class="subnav">
-                          <li class="subnav__backBtn js-nav-list-back">
-                            <a href="#"><i class="icon icon-chevron-sm-down"></i> Proteína</a>
-                          </li>
-
-                          <li><a href="tour-list-1.html">Proteína Whey</a></li>
-
-                          <li><a href="tour-grid-1.html">Diet Proteína</a></li>
-
-                          <li><a href="tour-map.html">Proteína Vegana</a></li>
-
-                        </ul>
-                      </li>
-
-                      <li class="menu-item-has-children">
-                        <a data-barba href="#">
-                          <span class="mr-10">Pre Workout</span>
-                          <i class="icon icon-chevron-sm-down"></i>
-                        </a>
-
-                        <ul class="subnav">
-                          <li class="subnav__backBtn js-nav-list-back">
-                            <a href="#"><i class="icon icon-chevron-sm-down"></i> Pre Workout</a>
-                          </li>
-
-                          <li><a href="activity-list-1.html">Suplemento Pre Workout</a></li>
-
-                          <li><a href="activity-grid-1.html">Sin cafeína</a></li>
-
-                        </ul>
-                      </li>
-
-                      <li class="menu-item-has-children">
-                        <a data-barba href="#">
-                          <span class="mr-10">Energía</span>
-                          <i class="icon icon-chevron-sm-down"></i>
-                        </a>
-
-                        <ul class="subnav">
-                          <li class="subnav__backBtn js-nav-list-back">
-                            <a href="#"><i class="icon icon-chevron-sm-down"></i> Energía</a>
-                          </li>
-                          <div><a href="rental-list-1.html">Barritas Energéticas</a></div>
-
-                          <div><a href="rental-grid-1.html">Geles Energéticos</a></div>
-
-                          <div><a href="rental-grid-1.html">Bebidas Energéticas</a></div>
-
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <!-- End mobile -->
                 </ul>
               </div>
 
@@ -354,16 +155,36 @@
             </div>
           </div>
 
+          <?php
+          // Verifica si la sesión 'user' está establecida y tiene un valor
+          if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
+            // La sesión 'user' está establecida, muestra el icono
+            echo '<div class="ml-20"><a style="color: white;" href="BD204305407Z/client_dash.php" class="d-flex items-center icon-user text-inherit text-22"></a></div>';
+          } else {
+          ?>
 
-          <div class="d-flex items-center ml-20 is-menu-opened-hide md:d-none">
-            <a href="/BD204305407Z/login.php" class="button px-30 fw-400 text-14 -blue-1 bg-white h-50 text-dark-1">Inicia Sesión</a>
-            <a href="signup.html" class="button px-30 fw-400 text-14 border-white -blue-1 h-50 text-white ml-20">Regístrate</a>
-          </div>
-
+            <div class="d-flex items-center ml-20 is-menu-opened-hide md:d-none">
+              <a href="BD204305407Z/login.php" class="button px-30 fw-400 text-14 -blue-1 bg-white h-50 text-dark-1">Inicia Sesión</a>
+              <a href="BD204305407Z/signup.php" class="button px-30 fw-400 text-14 border-white -blue-1 h-50 text-white ml-20">Regístrate</a>
+            </div>
+          <?php
+          }
+          ?>
           <div class="d-none xl:d-flex x-gap-20 items-center pl-30 text-white" data-x="header-mobile-icons" data-x-toggle="text-white">
-            <div><a href="login.html" class="d-flex items-center icon-user text-inherit text-22"></a></div>
+            <div><a href="login.php" class="d-flex items-center icon-user text-inherit text-22"></a></div>
             <div><button class="d-flex items-center icon-menu text-inherit text-20" data-x-click="html, header, header-logo, header-mobile-icons, mobile-menu"></button></div>
           </div>
+          <a href="BD204305407Z/checkout.php" class="button px-5 fw-400 rounded-full text-14 border-white -blue-1 h-50 text-white ml-20" aria-label="Cesta">
+            <span class="responsiveFlyoutBasket_icon_container">
+              <svg fill="#FFFF" class="text-13 text-light fw-500 responsiveFlyoutBasket_icon responsiveFlyoutBasket_icon-basket" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M6.57412994,10 L17.3932043,10 L13.37,4.18336196 L15.0021928,3 L19.8438952,10 L21,10 C21.5522847,10 22,10.4477153 22,11 C22,11.5522847 21.5522847,12 21,12 L17.5278769,19.8122769 C17.2068742,20.534533 16.4906313,21 15.7002538,21 L8.29974618,21 C7.50936875,21 6.79312576,20.534533 6.47212308,19.8122769 L3,12 C2.44771525,12 2,11.5522847 2,11 C2,10.4477153 2.44771525,10 3,10 L4.11632272,10 L9,3 L10.6274669,4.19016504 L6.57412994,10 Z M5.18999958,12 L8.29999924,19 L15.6962585,19 L18.8099995,12 L5.18999958,12 Z"></path>
+              </svg>
+
+              <span class="responsiveFlyoutBasket_itemsCount badge" data-js-element="itemsCount" id="count_carrito">
+                <?= $num_cart ?>
+              </span>
+            </span>
+          </a>
         </div>
       </div>
     </div>

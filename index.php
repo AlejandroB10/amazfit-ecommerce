@@ -1,3 +1,6 @@
+<?php
+include('conexion.php');
+?>
 <!DOCTYPE html>
 <html lang="en" data-x="html" data-x-toggle="html-overflow-hidden">
 
@@ -14,7 +17,24 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/vendors.css">
   <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* Cambiar el color del trazo del SVG al pasar el ratón por encima */
+    #mySvg {
+      transition: stroke 0.3s ease-out;
+      /* Agrega una transición suave al color del trazo */
+    }
 
+    #mySvg:hover {
+      stroke: #ffffff;
+      /* Cambia el color del trazo al pasar el ratón por encima */
+    }
+
+    /* Cambiar el fondo del div que envuelve al SVG al pasar el ratón por encima */
+    .tourTypeCard:hover {
+      background-color: #ffffff;
+      /* Cambia el color de fondo al pasar el ratón por encima */
+    }
+  </style>
   <title>AmazFit</title>
 </head>
 
@@ -22,3464 +42,24 @@
 
   <main>
 
-  <?php
+    <?php
     include('header.php');
-  ?>
+    ?>
 
 
     <section data-anim-wrap class="masthead -type-6">
       <div data-anim-child="fade" class="masthead__bg bg-dark-3">
-        <img src="img/masthead/6/bg.png" alt="image">
+        <img src="img/backgrounds/imageBack.jpg" alt="image">
       </div>
 
       <div class="container">
         <div class="row justify-center">
           <div class="col-xl-9">
             <div class="text-center">
-              <h1 data-anim-child="slide-up delay-4" class="text-60 lg:text-40 md:text-30 text-white">The World is Waiting For You</h1>
-              <p data-anim-child="slide-up delay-5" class="text-white mt-5">Discover amzaing places at exclusive deals</p>
+              <h1 data-anim-child="slide-up delay-4" class="text-60 lg:text-40 md:text-30 text-white">Encuentra los mejores productos Fitness</h1>
+              <p data-anim-child="slide-up delay-5" class="text-white mt-5">Las mejores marcas al mejor precio</p>
             </div>
 
-            <div data-anim-child="slide-up delay-6" class="mainSearch -w-900 bg-white px-10 py-10 lg:px-20 lg:pt-5 lg:pb-20 rounded-100 mt-40">
-              <div class="button-grid items-center">
-
-                <div class="searchMenu-loc px-30 lg:py-20 lg:px-0 js-form-dd js-liverSearch">
-
-                  <div data-x-dd-click="searchMenu-loc">
-                    <h4 class="text-15 fw-500 ls-2 lh-16">Location</h4>
-
-                    <div class="text-15 text-light-1 ls-2 lh-16">
-                      <input autocomplete="off" type="search" placeholder="Where are you going?" class="js-search js-dd-focus" />
-                    </div>
-                  </div>
-
-
-                  <div class="searchMenu-loc__field shadow-2 js-popup-window" data-x-dd="searchMenu-loc" data-x-dd-toggle="-is-active">
-                    <div class="bg-white px-30 py-30 sm:px-0 sm:py-15 rounded-4">
-                      <div class="y-gap-5 js-results">
-
-                        <div>
-                          <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                            <div class="d-flex">
-                              <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                              <div class="ml-10">
-                                <div class="text-15 lh-12 fw-500 js-search-option-target">London</div>
-                                <div class="text-14 lh-12 text-light-1 mt-5">Greater London, United Kingdom</div>
-                              </div>
-                            </div>
-                          </button>
-                        </div>
-
-                        <div>
-                          <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                            <div class="d-flex">
-                              <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                              <div class="ml-10">
-                                <div class="text-15 lh-12 fw-500 js-search-option-target">New York</div>
-                                <div class="text-14 lh-12 text-light-1 mt-5">New York State, United States</div>
-                              </div>
-                            </div>
-                          </button>
-                        </div>
-
-                        <div>
-                          <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                            <div class="d-flex">
-                              <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                              <div class="ml-10">
-                                <div class="text-15 lh-12 fw-500 js-search-option-target">Paris</div>
-                                <div class="text-14 lh-12 text-light-1 mt-5">France</div>
-                              </div>
-                            </div>
-                          </button>
-                        </div>
-
-                        <div>
-                          <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                            <div class="d-flex">
-                              <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                              <div class="ml-10">
-                                <div class="text-15 lh-12 fw-500 js-search-option-target">Madrid</div>
-                                <div class="text-14 lh-12 text-light-1 mt-5">Spain</div>
-                              </div>
-                            </div>
-                          </button>
-                        </div>
-
-                        <div>
-                          <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                            <div class="d-flex">
-                              <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                              <div class="ml-10">
-                                <div class="text-15 lh-12 fw-500 js-search-option-target">Santorini</div>
-                                <div class="text-14 lh-12 text-light-1 mt-5">Greece</div>
-                              </div>
-                            </div>
-                          </button>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar">
-
-                  <div data-x-dd-click="searchMenu-date">
-                    <h4 class="text-15 fw-500 ls-2 lh-16">Check in - Check out</h4>
-
-                    <div class="text-15 text-light-1 ls-2 lh-16">
-                      <span class="js-first-date">Wed 2 Mar</span>
-                      -
-                      <span class="js-last-date">Fri 11 Apr</span>
-                    </div>
-                  </div>
-
-
-                  <div class="searchMenu-date__field shadow-2" data-x-dd="searchMenu-date" data-x-dd-toggle="-is-active">
-                    <div class="bg-white px-30 py-30 rounded-4">
-                      <div class="overflow-hidden js-calendar-slider">
-                        <div class="swiper-wrapper">
-
-
-                          <div class="swiper-slide">
-                            <div class="text-28 fw-500 text-center mb-10">January 2022</div>
-
-                            <div class="table-calendar js-calendar-single">
-                              <div class="table-calendar__header">
-                                <div>Sun</div>
-                                <div>Mon</div>
-                                <div>Tue</div>
-                                <div>Wed</div>
-                                <div>Thu</div>
-                                <div>Fri</div>
-                                <div>Sat</div>
-                              </div>
-
-                              <div class="table-calendar__grid overflow-hidden">
-
-                                <div data-index="1" data-week="Sun" data-month="Dec" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">26</span>
-
-
-                                </div>
-
-
-                                <div data-index="2" data-week="Mon" data-month="Dec" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">27</span>
-
-
-                                </div>
-
-
-                                <div data-index="3" data-week="Tue" data-month="Dec" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">28</span>
-
-
-                                </div>
-
-
-                                <div data-index="4" data-week="Wed" data-month="Dec" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">29</span>
-
-
-                                </div>
-
-
-                                <div data-index="5" data-week="Thu" data-month="Dec" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">30</span>
-
-
-                                </div>
-
-
-                                <div data-index="6" data-week="Fri" data-month="Dec" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">31</span>
-
-
-                                </div>
-
-
-                                <div data-index="7" data-week="Sat" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">1</span>
-
-
-                                </div>
-
-
-                                <div data-index="8" data-week="Sun" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">2</span>
-
-
-                                </div>
-
-
-                                <div data-index="9" data-week="Mon" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">3</span>
-
-
-                                </div>
-
-
-                                <div data-index="10" data-week="Tue" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">4</span>
-
-
-                                </div>
-
-
-                                <div data-index="11" data-week="Wed" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">5</span>
-
-
-                                </div>
-
-
-                                <div data-index="12" data-week="Thu" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">6</span>
-
-
-                                </div>
-
-
-                                <div data-index="13" data-week="Fri" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">7</span>
-
-
-                                </div>
-
-
-                                <div data-index="14" data-week="Sat" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">8</span>
-
-
-                                </div>
-
-
-                                <div data-index="15" data-week="Sun" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">9</span>
-
-
-                                </div>
-
-
-                                <div data-index="16" data-week="Mon" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">10</span>
-
-
-                                </div>
-
-
-                                <div data-index="17" data-week="Tue" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">11</span>
-
-
-                                </div>
-
-
-                                <div data-index="18" data-week="Wed" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">12</span>
-
-
-                                </div>
-
-
-                                <div data-index="19" data-week="Thu" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">13</span>
-
-
-                                </div>
-
-
-                                <div data-index="20" data-week="Fri" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">14</span>
-
-
-                                </div>
-
-
-                                <div data-index="21" data-week="Sat" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">15</span>
-
-
-                                </div>
-
-
-                                <div data-index="22" data-week="Sun" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">16</span>
-
-
-                                </div>
-
-
-                                <div data-index="23" data-week="Mon" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">17</span>
-
-
-                                </div>
-
-
-                                <div data-index="24" data-week="Tue" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">18</span>
-
-
-                                </div>
-
-
-                                <div data-index="25" data-week="Wed" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">19</span>
-
-
-                                </div>
-
-
-                                <div data-index="26" data-week="Thu" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">20</span>
-
-
-                                </div>
-
-
-                                <div data-index="27" data-week="Fri" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">21</span>
-
-
-                                </div>
-
-
-                                <div data-index="28" data-week="Sat" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">22</span>
-
-
-                                </div>
-
-
-                                <div data-index="29" data-week="Sun" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">23</span>
-
-
-                                </div>
-
-
-                                <div data-index="30" data-week="Mon" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">24</span>
-
-
-                                </div>
-
-
-                                <div data-index="31" data-week="Tue" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">25</span>
-
-
-                                </div>
-
-
-                                <div data-index="32" data-week="Wed" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">26</span>
-
-
-                                </div>
-
-
-                                <div data-index="33" data-week="Thu" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">27</span>
-
-
-                                </div>
-
-
-                                <div data-index="34" data-week="Fri" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">28</span>
-
-
-                                </div>
-
-
-                                <div data-index="35" data-week="Sat" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">29</span>
-
-
-                                </div>
-
-
-                                <div data-index="36" data-week="Sun" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">30</span>
-
-
-                                </div>
-
-
-                                <div data-index="37" data-week="Mon" data-month="Jan" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">31</span>
-
-
-                                </div>
-
-
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="swiper-slide">
-                            <div class="text-28 fw-500 text-center mb-10">February 2022</div>
-
-                            <div class="table-calendar js-calendar-single">
-                              <div class="table-calendar__header">
-                                <div>Sun</div>
-                                <div>Mon</div>
-                                <div>Tue</div>
-                                <div>Wed</div>
-                                <div>Thu</div>
-                                <div>Fri</div>
-                                <div>Sat</div>
-                              </div>
-
-                              <div class="table-calendar__grid overflow-hidden">
-
-                                <div data-index="38" data-week="Sun" data-month="Jan" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">30</span>
-
-
-                                </div>
-
-
-                                <div data-index="39" data-week="Mon" data-month="Jan" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">31</span>
-
-
-                                </div>
-
-
-                                <div data-index="40" data-week="Tue" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">1</span>
-
-
-                                </div>
-
-
-                                <div data-index="41" data-week="Wed" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">2</span>
-
-
-                                </div>
-
-
-                                <div data-index="42" data-week="Thu" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">3</span>
-
-
-                                </div>
-
-
-                                <div data-index="43" data-week="Fri" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">4</span>
-
-
-                                </div>
-
-
-                                <div data-index="44" data-week="Sat" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">5</span>
-
-
-                                </div>
-
-
-                                <div data-index="45" data-week="Sun" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">6</span>
-
-
-                                </div>
-
-
-                                <div data-index="46" data-week="Mon" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">7</span>
-
-
-                                </div>
-
-
-                                <div data-index="47" data-week="Tue" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">8</span>
-
-
-                                </div>
-
-
-                                <div data-index="48" data-week="Wed" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">9</span>
-
-
-                                </div>
-
-
-                                <div data-index="49" data-week="Thu" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">10</span>
-
-
-                                </div>
-
-
-                                <div data-index="50" data-week="Fri" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">11</span>
-
-
-                                </div>
-
-
-                                <div data-index="51" data-week="Sat" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">12</span>
-
-
-                                </div>
-
-
-                                <div data-index="52" data-week="Sun" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">13</span>
-
-
-                                </div>
-
-
-                                <div data-index="53" data-week="Mon" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">14</span>
-
-
-                                </div>
-
-
-                                <div data-index="54" data-week="Tue" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">15</span>
-
-
-                                </div>
-
-
-                                <div data-index="55" data-week="Wed" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">16</span>
-
-
-                                </div>
-
-
-                                <div data-index="56" data-week="Thu" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">17</span>
-
-
-                                </div>
-
-
-                                <div data-index="57" data-week="Fri" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">18</span>
-
-
-                                </div>
-
-
-                                <div data-index="58" data-week="Sat" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">19</span>
-
-
-                                </div>
-
-
-                                <div data-index="59" data-week="Sun" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">20</span>
-
-
-                                </div>
-
-
-                                <div data-index="60" data-week="Mon" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">21</span>
-
-
-                                </div>
-
-
-                                <div data-index="61" data-week="Tue" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">22</span>
-
-
-                                </div>
-
-
-                                <div data-index="62" data-week="Wed" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">23</span>
-
-
-                                </div>
-
-
-                                <div data-index="63" data-week="Thu" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">24</span>
-
-
-                                </div>
-
-
-                                <div data-index="64" data-week="Fri" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">25</span>
-
-
-                                </div>
-
-
-                                <div data-index="65" data-week="Sat" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">26</span>
-
-
-                                </div>
-
-
-                                <div data-index="66" data-week="Sun" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">27</span>
-
-
-                                </div>
-
-
-                                <div data-index="67" data-week="Mon" data-month="Feb" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">28</span>
-
-
-                                </div>
-
-
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="swiper-slide">
-                            <div class="text-28 fw-500 text-center mb-10">March 2022</div>
-
-                            <div class="table-calendar js-calendar-single">
-                              <div class="table-calendar__header">
-                                <div>Sun</div>
-                                <div>Mon</div>
-                                <div>Tue</div>
-                                <div>Wed</div>
-                                <div>Thu</div>
-                                <div>Fri</div>
-                                <div>Sat</div>
-                              </div>
-
-                              <div class="table-calendar__grid overflow-hidden">
-
-                                <div data-index="68" data-week="Sun" data-month="Feb" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">27</span>
-
-
-                                </div>
-
-
-                                <div data-index="69" data-week="Mon" data-month="Feb" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">28</span>
-
-
-                                </div>
-
-
-                                <div data-index="70" data-week="Tue" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">1</span>
-
-
-                                </div>
-
-
-                                <div data-index="71" data-week="Wed" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">2</span>
-
-
-                                </div>
-
-
-                                <div data-index="72" data-week="Thu" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">3</span>
-
-
-                                </div>
-
-
-                                <div data-index="73" data-week="Fri" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">4</span>
-
-
-                                </div>
-
-
-                                <div data-index="74" data-week="Sat" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">5</span>
-
-
-                                </div>
-
-
-                                <div data-index="75" data-week="Sun" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">6</span>
-
-
-                                </div>
-
-
-                                <div data-index="76" data-week="Mon" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">7</span>
-
-
-                                </div>
-
-
-                                <div data-index="77" data-week="Tue" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">8</span>
-
-
-                                </div>
-
-
-                                <div data-index="78" data-week="Wed" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">9</span>
-
-
-                                </div>
-
-
-                                <div data-index="79" data-week="Thu" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">10</span>
-
-
-                                </div>
-
-
-                                <div data-index="80" data-week="Fri" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">11</span>
-
-
-                                </div>
-
-
-                                <div data-index="81" data-week="Sat" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">12</span>
-
-
-                                </div>
-
-
-                                <div data-index="82" data-week="Sun" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">13</span>
-
-
-                                </div>
-
-
-                                <div data-index="83" data-week="Mon" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">14</span>
-
-
-                                </div>
-
-
-                                <div data-index="84" data-week="Tue" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">15</span>
-
-
-                                </div>
-
-
-                                <div data-index="85" data-week="Wed" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">16</span>
-
-
-                                </div>
-
-
-                                <div data-index="86" data-week="Thu" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">17</span>
-
-
-                                </div>
-
-
-                                <div data-index="87" data-week="Fri" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">18</span>
-
-
-                                </div>
-
-
-                                <div data-index="88" data-week="Sat" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">19</span>
-
-
-                                </div>
-
-
-                                <div data-index="89" data-week="Sun" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">20</span>
-
-
-                                </div>
-
-
-                                <div data-index="90" data-week="Mon" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">21</span>
-
-
-                                </div>
-
-
-                                <div data-index="91" data-week="Tue" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">22</span>
-
-
-                                </div>
-
-
-                                <div data-index="92" data-week="Wed" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">23</span>
-
-
-                                </div>
-
-
-                                <div data-index="93" data-week="Thu" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">24</span>
-
-
-                                </div>
-
-
-                                <div data-index="94" data-week="Fri" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">25</span>
-
-
-                                </div>
-
-
-                                <div data-index="95" data-week="Sat" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">26</span>
-
-
-                                </div>
-
-
-                                <div data-index="96" data-week="Sun" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">27</span>
-
-
-                                </div>
-
-
-                                <div data-index="97" data-week="Mon" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">28</span>
-
-
-                                </div>
-
-
-                                <div data-index="98" data-week="Tue" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">29</span>
-
-
-                                </div>
-
-
-                                <div data-index="99" data-week="Wed" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">30</span>
-
-
-                                </div>
-
-
-                                <div data-index="100" data-week="Thu" data-month="Mar" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">31</span>
-
-
-                                </div>
-
-
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="swiper-slide">
-                            <div class="text-28 fw-500 text-center mb-10">April 2022</div>
-
-                            <div class="table-calendar js-calendar-single">
-                              <div class="table-calendar__header">
-                                <div>Sun</div>
-                                <div>Mon</div>
-                                <div>Tue</div>
-                                <div>Wed</div>
-                                <div>Thu</div>
-                                <div>Fri</div>
-                                <div>Sat</div>
-                              </div>
-
-                              <div class="table-calendar__grid overflow-hidden">
-
-                                <div data-index="101" data-week="Sun" data-month="Mar" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">27</span>
-
-
-                                </div>
-
-
-                                <div data-index="102" data-week="Mon" data-month="Mar" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">28</span>
-
-
-                                </div>
-
-
-                                <div data-index="103" data-week="Tue" data-month="Mar" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">29</span>
-
-
-                                </div>
-
-
-                                <div data-index="104" data-week="Wed" data-month="Mar" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">30</span>
-
-
-                                </div>
-
-
-                                <div data-index="105" data-week="Thu" data-month="Mar" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">31</span>
-
-
-                                </div>
-
-
-                                <div data-index="106" data-week="Fri" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">1</span>
-
-
-                                </div>
-
-
-                                <div data-index="107" data-week="Sat" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">2</span>
-
-
-                                </div>
-
-
-                                <div data-index="108" data-week="Sun" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">3</span>
-
-
-                                </div>
-
-
-                                <div data-index="109" data-week="Mon" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">4</span>
-
-
-                                </div>
-
-
-                                <div data-index="110" data-week="Tue" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">5</span>
-
-
-                                </div>
-
-
-                                <div data-index="111" data-week="Wed" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">6</span>
-
-
-                                </div>
-
-
-                                <div data-index="112" data-week="Thu" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">7</span>
-
-
-                                </div>
-
-
-                                <div data-index="113" data-week="Fri" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">8</span>
-
-
-                                </div>
-
-
-                                <div data-index="114" data-week="Sat" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">9</span>
-
-
-                                </div>
-
-
-                                <div data-index="115" data-week="Sun" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">10</span>
-
-
-                                </div>
-
-
-                                <div data-index="116" data-week="Mon" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">11</span>
-
-
-                                </div>
-
-
-                                <div data-index="117" data-week="Tue" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">12</span>
-
-
-                                </div>
-
-
-                                <div data-index="118" data-week="Wed" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">13</span>
-
-
-                                </div>
-
-
-                                <div data-index="119" data-week="Thu" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">14</span>
-
-
-                                </div>
-
-
-                                <div data-index="120" data-week="Fri" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">15</span>
-
-
-                                </div>
-
-
-                                <div data-index="121" data-week="Sat" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">16</span>
-
-
-                                </div>
-
-
-                                <div data-index="122" data-week="Sun" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">17</span>
-
-
-                                </div>
-
-
-                                <div data-index="123" data-week="Mon" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">18</span>
-
-
-                                </div>
-
-
-                                <div data-index="124" data-week="Tue" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">19</span>
-
-
-                                </div>
-
-
-                                <div data-index="125" data-week="Wed" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">20</span>
-
-
-                                </div>
-
-
-                                <div data-index="126" data-week="Thu" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">21</span>
-
-
-                                </div>
-
-
-                                <div data-index="127" data-week="Fri" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">22</span>
-
-
-                                </div>
-
-
-                                <div data-index="128" data-week="Sat" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">23</span>
-
-
-                                </div>
-
-
-                                <div data-index="129" data-week="Sun" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">24</span>
-
-
-                                </div>
-
-
-                                <div data-index="130" data-week="Mon" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">25</span>
-
-
-                                </div>
-
-
-                                <div data-index="131" data-week="Tue" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">26</span>
-
-
-                                </div>
-
-
-                                <div data-index="132" data-week="Wed" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">27</span>
-
-
-                                </div>
-
-
-                                <div data-index="133" data-week="Thu" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">28</span>
-
-
-                                </div>
-
-
-                                <div data-index="134" data-week="Fri" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">29</span>
-
-
-                                </div>
-
-
-                                <div data-index="135" data-week="Sat" data-month="Apr" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">30</span>
-
-
-                                </div>
-
-
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="swiper-slide">
-                            <div class="text-28 fw-500 text-center mb-10">May 2022</div>
-
-                            <div class="table-calendar js-calendar-single">
-                              <div class="table-calendar__header">
-                                <div>Sun</div>
-                                <div>Mon</div>
-                                <div>Tue</div>
-                                <div>Wed</div>
-                                <div>Thu</div>
-                                <div>Fri</div>
-                                <div>Sat</div>
-                              </div>
-
-                              <div class="table-calendar__grid overflow-hidden">
-
-                                <div data-index="136" data-week="Sun" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">1</span>
-
-
-                                </div>
-
-
-                                <div data-index="137" data-week="Mon" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">2</span>
-
-
-                                </div>
-
-
-                                <div data-index="138" data-week="Tue" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">3</span>
-
-
-                                </div>
-
-
-                                <div data-index="139" data-week="Wed" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">4</span>
-
-
-                                </div>
-
-
-                                <div data-index="140" data-week="Thu" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">5</span>
-
-
-                                </div>
-
-
-                                <div data-index="141" data-week="Fri" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">6</span>
-
-
-                                </div>
-
-
-                                <div data-index="142" data-week="Sat" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">7</span>
-
-
-                                </div>
-
-
-                                <div data-index="143" data-week="Sun" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">8</span>
-
-
-                                </div>
-
-
-                                <div data-index="144" data-week="Mon" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">9</span>
-
-
-                                </div>
-
-
-                                <div data-index="145" data-week="Tue" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">10</span>
-
-
-                                </div>
-
-
-                                <div data-index="146" data-week="Wed" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">11</span>
-
-
-                                </div>
-
-
-                                <div data-index="147" data-week="Thu" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">12</span>
-
-
-                                </div>
-
-
-                                <div data-index="148" data-week="Fri" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">13</span>
-
-
-                                </div>
-
-
-                                <div data-index="149" data-week="Sat" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">14</span>
-
-
-                                </div>
-
-
-                                <div data-index="150" data-week="Sun" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">15</span>
-
-
-                                </div>
-
-
-                                <div data-index="151" data-week="Mon" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">16</span>
-
-
-                                </div>
-
-
-                                <div data-index="152" data-week="Tue" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">17</span>
-
-
-                                </div>
-
-
-                                <div data-index="153" data-week="Wed" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">18</span>
-
-
-                                </div>
-
-
-                                <div data-index="154" data-week="Thu" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">19</span>
-
-
-                                </div>
-
-
-                                <div data-index="155" data-week="Fri" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">20</span>
-
-
-                                </div>
-
-
-                                <div data-index="156" data-week="Sat" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">21</span>
-
-
-                                </div>
-
-
-                                <div data-index="157" data-week="Sun" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">22</span>
-
-
-                                </div>
-
-
-                                <div data-index="158" data-week="Mon" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">23</span>
-
-
-                                </div>
-
-
-                                <div data-index="159" data-week="Tue" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">24</span>
-
-
-                                </div>
-
-
-                                <div data-index="160" data-week="Wed" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">25</span>
-
-
-                                </div>
-
-
-                                <div data-index="161" data-week="Thu" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">26</span>
-
-
-                                </div>
-
-
-                                <div data-index="162" data-week="Fri" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">27</span>
-
-
-                                </div>
-
-
-                                <div data-index="163" data-week="Sat" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">28</span>
-
-
-                                </div>
-
-
-                                <div data-index="164" data-week="Sun" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">29</span>
-
-
-                                </div>
-
-
-                                <div data-index="165" data-week="Mon" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">30</span>
-
-
-                                </div>
-
-
-                                <div data-index="166" data-week="Tue" data-month="May" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">31</span>
-
-
-                                </div>
-
-
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="swiper-slide">
-                            <div class="text-28 fw-500 text-center mb-10">June 2022</div>
-
-                            <div class="table-calendar js-calendar-single">
-                              <div class="table-calendar__header">
-                                <div>Sun</div>
-                                <div>Mon</div>
-                                <div>Tue</div>
-                                <div>Wed</div>
-                                <div>Thu</div>
-                                <div>Fri</div>
-                                <div>Sat</div>
-                              </div>
-
-                              <div class="table-calendar__grid overflow-hidden">
-
-                                <div data-index="167" data-week="Sun" data-month="May" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">29</span>
-
-
-                                </div>
-
-
-                                <div data-index="168" data-week="Mon" data-month="May" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">30</span>
-
-
-                                </div>
-
-
-                                <div data-index="169" data-week="Tue" data-month="May" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">31</span>
-
-
-                                </div>
-
-
-                                <div data-index="170" data-week="Wed" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">1</span>
-
-
-                                </div>
-
-
-                                <div data-index="171" data-week="Thu" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">2</span>
-
-
-                                </div>
-
-
-                                <div data-index="172" data-week="Fri" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">3</span>
-
-
-                                </div>
-
-
-                                <div data-index="173" data-week="Sat" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">4</span>
-
-
-                                </div>
-
-
-                                <div data-index="174" data-week="Sun" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">5</span>
-
-
-                                </div>
-
-
-                                <div data-index="175" data-week="Mon" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">6</span>
-
-
-                                </div>
-
-
-                                <div data-index="176" data-week="Tue" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">7</span>
-
-
-                                </div>
-
-
-                                <div data-index="177" data-week="Wed" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">8</span>
-
-
-                                </div>
-
-
-                                <div data-index="178" data-week="Thu" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">9</span>
-
-
-                                </div>
-
-
-                                <div data-index="179" data-week="Fri" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">10</span>
-
-
-                                </div>
-
-
-                                <div data-index="180" data-week="Sat" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">11</span>
-
-
-                                </div>
-
-
-                                <div data-index="181" data-week="Sun" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">12</span>
-
-
-                                </div>
-
-
-                                <div data-index="182" data-week="Mon" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">13</span>
-
-
-                                </div>
-
-
-                                <div data-index="183" data-week="Tue" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">14</span>
-
-
-                                </div>
-
-
-                                <div data-index="184" data-week="Wed" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">15</span>
-
-
-                                </div>
-
-
-                                <div data-index="185" data-week="Thu" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">16</span>
-
-
-                                </div>
-
-
-                                <div data-index="186" data-week="Fri" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">17</span>
-
-
-                                </div>
-
-
-                                <div data-index="187" data-week="Sat" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">18</span>
-
-
-                                </div>
-
-
-                                <div data-index="188" data-week="Sun" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">19</span>
-
-
-                                </div>
-
-
-                                <div data-index="189" data-week="Mon" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">20</span>
-
-
-                                </div>
-
-
-                                <div data-index="190" data-week="Tue" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">21</span>
-
-
-                                </div>
-
-
-                                <div data-index="191" data-week="Wed" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">22</span>
-
-
-                                </div>
-
-
-                                <div data-index="192" data-week="Thu" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">23</span>
-
-
-                                </div>
-
-
-                                <div data-index="193" data-week="Fri" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">24</span>
-
-
-                                </div>
-
-
-                                <div data-index="194" data-week="Sat" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">25</span>
-
-
-                                </div>
-
-
-                                <div data-index="195" data-week="Sun" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">26</span>
-
-
-                                </div>
-
-
-                                <div data-index="196" data-week="Mon" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">27</span>
-
-
-                                </div>
-
-
-                                <div data-index="197" data-week="Tue" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">28</span>
-
-
-                                </div>
-
-
-                                <div data-index="198" data-week="Wed" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">29</span>
-
-
-                                </div>
-
-
-                                <div data-index="199" data-week="Thu" data-month="Jun" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">30</span>
-
-
-                                </div>
-
-
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="swiper-slide">
-                            <div class="text-28 fw-500 text-center mb-10">July 2022</div>
-
-                            <div class="table-calendar js-calendar-single">
-                              <div class="table-calendar__header">
-                                <div>Sun</div>
-                                <div>Mon</div>
-                                <div>Tue</div>
-                                <div>Wed</div>
-                                <div>Thu</div>
-                                <div>Fri</div>
-                                <div>Sat</div>
-                              </div>
-
-                              <div class="table-calendar__grid overflow-hidden">
-
-                                <div data-index="200" data-week="Sun" data-month="Jun" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">26</span>
-
-
-                                </div>
-
-
-                                <div data-index="201" data-week="Mon" data-month="Jun" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">27</span>
-
-
-                                </div>
-
-
-                                <div data-index="202" data-week="Tue" data-month="Jun" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">28</span>
-
-
-                                </div>
-
-
-                                <div data-index="203" data-week="Wed" data-month="Jun" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">29</span>
-
-
-                                </div>
-
-
-                                <div data-index="204" data-week="Thu" data-month="Jun" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">30</span>
-
-
-                                </div>
-
-
-                                <div data-index="205" data-week="Fri" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">1</span>
-
-
-                                </div>
-
-
-                                <div data-index="206" data-week="Sat" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">2</span>
-
-
-                                </div>
-
-
-                                <div data-index="207" data-week="Sun" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">3</span>
-
-
-                                </div>
-
-
-                                <div data-index="208" data-week="Mon" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">4</span>
-
-
-                                </div>
-
-
-                                <div data-index="209" data-week="Tue" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">5</span>
-
-
-                                </div>
-
-
-                                <div data-index="210" data-week="Wed" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">6</span>
-
-
-                                </div>
-
-
-                                <div data-index="211" data-week="Thu" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">7</span>
-
-
-                                </div>
-
-
-                                <div data-index="212" data-week="Fri" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">8</span>
-
-
-                                </div>
-
-
-                                <div data-index="213" data-week="Sat" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">9</span>
-
-
-                                </div>
-
-
-                                <div data-index="214" data-week="Sun" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">10</span>
-
-
-                                </div>
-
-
-                                <div data-index="215" data-week="Mon" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">11</span>
-
-
-                                </div>
-
-
-                                <div data-index="216" data-week="Tue" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">12</span>
-
-
-                                </div>
-
-
-                                <div data-index="217" data-week="Wed" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">13</span>
-
-
-                                </div>
-
-
-                                <div data-index="218" data-week="Thu" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">14</span>
-
-
-                                </div>
-
-
-                                <div data-index="219" data-week="Fri" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">15</span>
-
-
-                                </div>
-
-
-                                <div data-index="220" data-week="Sat" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">16</span>
-
-
-                                </div>
-
-
-                                <div data-index="221" data-week="Sun" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">17</span>
-
-
-                                </div>
-
-
-                                <div data-index="222" data-week="Mon" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">18</span>
-
-
-                                </div>
-
-
-                                <div data-index="223" data-week="Tue" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">19</span>
-
-
-                                </div>
-
-
-                                <div data-index="224" data-week="Wed" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">20</span>
-
-
-                                </div>
-
-
-                                <div data-index="225" data-week="Thu" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">21</span>
-
-
-                                </div>
-
-
-                                <div data-index="226" data-week="Fri" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">22</span>
-
-
-                                </div>
-
-
-                                <div data-index="227" data-week="Sat" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">23</span>
-
-
-                                </div>
-
-
-                                <div data-index="228" data-week="Sun" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">24</span>
-
-
-                                </div>
-
-
-                                <div data-index="229" data-week="Mon" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">25</span>
-
-
-                                </div>
-
-
-                                <div data-index="230" data-week="Tue" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">26</span>
-
-
-                                </div>
-
-
-                                <div data-index="231" data-week="Wed" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">27</span>
-
-
-                                </div>
-
-
-                                <div data-index="232" data-week="Thu" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">28</span>
-
-
-                                </div>
-
-
-                                <div data-index="233" data-week="Fri" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">29</span>
-
-
-                                </div>
-
-
-                                <div data-index="234" data-week="Sat" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">30</span>
-
-
-                                </div>
-
-
-                                <div data-index="235" data-week="Sun" data-month="Jul" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">31</span>
-
-
-                                </div>
-
-
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="swiper-slide">
-                            <div class="text-28 fw-500 text-center mb-10">August 2022</div>
-
-                            <div class="table-calendar js-calendar-single">
-                              <div class="table-calendar__header">
-                                <div>Sun</div>
-                                <div>Mon</div>
-                                <div>Tue</div>
-                                <div>Wed</div>
-                                <div>Thu</div>
-                                <div>Fri</div>
-                                <div>Sat</div>
-                              </div>
-
-                              <div class="table-calendar__grid overflow-hidden">
-
-                                <div data-index="236" data-week="Sun" data-month="Jul" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">31</span>
-
-
-                                </div>
-
-
-                                <div data-index="237" data-week="Mon" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">1</span>
-
-
-                                </div>
-
-
-                                <div data-index="238" data-week="Tue" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">2</span>
-
-
-                                </div>
-
-
-                                <div data-index="239" data-week="Wed" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">3</span>
-
-
-                                </div>
-
-
-                                <div data-index="240" data-week="Thu" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">4</span>
-
-
-                                </div>
-
-
-                                <div data-index="241" data-week="Fri" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">5</span>
-
-
-                                </div>
-
-
-                                <div data-index="242" data-week="Sat" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">6</span>
-
-
-                                </div>
-
-
-                                <div data-index="243" data-week="Sun" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">7</span>
-
-
-                                </div>
-
-
-                                <div data-index="244" data-week="Mon" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">8</span>
-
-
-                                </div>
-
-
-                                <div data-index="245" data-week="Tue" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">9</span>
-
-
-                                </div>
-
-
-                                <div data-index="246" data-week="Wed" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">10</span>
-
-
-                                </div>
-
-
-                                <div data-index="247" data-week="Thu" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">11</span>
-
-
-                                </div>
-
-
-                                <div data-index="248" data-week="Fri" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">12</span>
-
-
-                                </div>
-
-
-                                <div data-index="249" data-week="Sat" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">13</span>
-
-
-                                </div>
-
-
-                                <div data-index="250" data-week="Sun" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">14</span>
-
-
-                                </div>
-
-
-                                <div data-index="251" data-week="Mon" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">15</span>
-
-
-                                </div>
-
-
-                                <div data-index="252" data-week="Tue" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">16</span>
-
-
-                                </div>
-
-
-                                <div data-index="253" data-week="Wed" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">17</span>
-
-
-                                </div>
-
-
-                                <div data-index="254" data-week="Thu" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">18</span>
-
-
-                                </div>
-
-
-                                <div data-index="255" data-week="Fri" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">19</span>
-
-
-                                </div>
-
-
-                                <div data-index="256" data-week="Sat" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">20</span>
-
-
-                                </div>
-
-
-                                <div data-index="257" data-week="Sun" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">21</span>
-
-
-                                </div>
-
-
-                                <div data-index="258" data-week="Mon" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">22</span>
-
-
-                                </div>
-
-
-                                <div data-index="259" data-week="Tue" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">23</span>
-
-
-                                </div>
-
-
-                                <div data-index="260" data-week="Wed" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">24</span>
-
-
-                                </div>
-
-
-                                <div data-index="261" data-week="Thu" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">25</span>
-
-
-                                </div>
-
-
-                                <div data-index="262" data-week="Fri" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">26</span>
-
-
-                                </div>
-
-
-                                <div data-index="263" data-week="Sat" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">27</span>
-
-
-                                </div>
-
-
-                                <div data-index="264" data-week="Sun" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">28</span>
-
-
-                                </div>
-
-
-                                <div data-index="265" data-week="Mon" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">29</span>
-
-
-                                </div>
-
-
-                                <div data-index="266" data-week="Tue" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">30</span>
-
-
-                                </div>
-
-
-                                <div data-index="267" data-week="Wed" data-month="Aug" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">31</span>
-
-
-                                </div>
-
-
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="swiper-slide">
-                            <div class="text-28 fw-500 text-center mb-10">September 2022</div>
-
-                            <div class="table-calendar js-calendar-single">
-                              <div class="table-calendar__header">
-                                <div>Sun</div>
-                                <div>Mon</div>
-                                <div>Tue</div>
-                                <div>Wed</div>
-                                <div>Thu</div>
-                                <div>Fri</div>
-                                <div>Sat</div>
-                              </div>
-
-                              <div class="table-calendar__grid overflow-hidden">
-
-                                <div data-index="268" data-week="Sun" data-month="Aug" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">28</span>
-
-
-                                </div>
-
-
-                                <div data-index="269" data-week="Mon" data-month="Aug" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">29</span>
-
-
-                                </div>
-
-
-                                <div data-index="270" data-week="Tue" data-month="Aug" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">30</span>
-
-
-                                </div>
-
-
-                                <div data-index="271" data-week="Wed" data-month="Aug" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">31</span>
-
-
-                                </div>
-
-
-                                <div data-index="272" data-week="Thu" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">1</span>
-
-
-                                </div>
-
-
-                                <div data-index="273" data-week="Fri" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">2</span>
-
-
-                                </div>
-
-
-                                <div data-index="274" data-week="Sat" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">3</span>
-
-
-                                </div>
-
-
-                                <div data-index="275" data-week="Sun" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">4</span>
-
-
-                                </div>
-
-
-                                <div data-index="276" data-week="Mon" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">5</span>
-
-
-                                </div>
-
-
-                                <div data-index="277" data-week="Tue" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">6</span>
-
-
-                                </div>
-
-
-                                <div data-index="278" data-week="Wed" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">7</span>
-
-
-                                </div>
-
-
-                                <div data-index="279" data-week="Thu" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">8</span>
-
-
-                                </div>
-
-
-                                <div data-index="280" data-week="Fri" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">9</span>
-
-
-                                </div>
-
-
-                                <div data-index="281" data-week="Sat" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">10</span>
-
-
-                                </div>
-
-
-                                <div data-index="282" data-week="Sun" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">11</span>
-
-
-                                </div>
-
-
-                                <div data-index="283" data-week="Mon" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">12</span>
-
-
-                                </div>
-
-
-                                <div data-index="284" data-week="Tue" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">13</span>
-
-
-                                </div>
-
-
-                                <div data-index="285" data-week="Wed" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">14</span>
-
-
-                                </div>
-
-
-                                <div data-index="286" data-week="Thu" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">15</span>
-
-
-                                </div>
-
-
-                                <div data-index="287" data-week="Fri" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">16</span>
-
-
-                                </div>
-
-
-                                <div data-index="288" data-week="Sat" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">17</span>
-
-
-                                </div>
-
-
-                                <div data-index="289" data-week="Sun" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">18</span>
-
-
-                                </div>
-
-
-                                <div data-index="290" data-week="Mon" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">19</span>
-
-
-                                </div>
-
-
-                                <div data-index="291" data-week="Tue" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">20</span>
-
-
-                                </div>
-
-
-                                <div data-index="292" data-week="Wed" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">21</span>
-
-
-                                </div>
-
-
-                                <div data-index="293" data-week="Thu" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">22</span>
-
-
-                                </div>
-
-
-                                <div data-index="294" data-week="Fri" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">23</span>
-
-
-                                </div>
-
-
-                                <div data-index="295" data-week="Sat" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">24</span>
-
-
-                                </div>
-
-
-                                <div data-index="296" data-week="Sun" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">25</span>
-
-
-                                </div>
-
-
-                                <div data-index="297" data-week="Mon" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">26</span>
-
-
-                                </div>
-
-
-                                <div data-index="298" data-week="Tue" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">27</span>
-
-
-                                </div>
-
-
-                                <div data-index="299" data-week="Wed" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">28</span>
-
-
-                                </div>
-
-
-                                <div data-index="300" data-week="Thu" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">29</span>
-
-
-                                </div>
-
-
-                                <div data-index="301" data-week="Fri" data-month="Sep" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">30</span>
-
-
-                                </div>
-
-
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="swiper-slide">
-                            <div class="text-28 fw-500 text-center mb-10">October 2022</div>
-
-                            <div class="table-calendar js-calendar-single">
-                              <div class="table-calendar__header">
-                                <div>Sun</div>
-                                <div>Mon</div>
-                                <div>Tue</div>
-                                <div>Wed</div>
-                                <div>Thu</div>
-                                <div>Fri</div>
-                                <div>Sat</div>
-                              </div>
-
-                              <div class="table-calendar__grid overflow-hidden">
-
-                                <div data-index="302" data-week="Sun" data-month="Sep" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">25</span>
-
-
-                                </div>
-
-
-                                <div data-index="303" data-week="Mon" data-month="Sep" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">26</span>
-
-
-                                </div>
-
-
-                                <div data-index="304" data-week="Tue" data-month="Sep" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">27</span>
-
-
-                                </div>
-
-
-                                <div data-index="305" data-week="Wed" data-month="Sep" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">28</span>
-
-
-                                </div>
-
-
-                                <div data-index="306" data-week="Thu" data-month="Sep" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">29</span>
-
-
-                                </div>
-
-
-                                <div data-index="307" data-week="Fri" data-month="Sep" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">30</span>
-
-
-                                </div>
-
-
-                                <div data-index="308" data-week="Sat" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">1</span>
-
-
-                                </div>
-
-
-                                <div data-index="309" data-week="Sun" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">2</span>
-
-
-                                </div>
-
-
-                                <div data-index="310" data-week="Mon" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">3</span>
-
-
-                                </div>
-
-
-                                <div data-index="311" data-week="Tue" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">4</span>
-
-
-                                </div>
-
-
-                                <div data-index="312" data-week="Wed" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">5</span>
-
-
-                                </div>
-
-
-                                <div data-index="313" data-week="Thu" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">6</span>
-
-
-                                </div>
-
-
-                                <div data-index="314" data-week="Fri" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">7</span>
-
-
-                                </div>
-
-
-                                <div data-index="315" data-week="Sat" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">8</span>
-
-
-                                </div>
-
-
-                                <div data-index="316" data-week="Sun" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">2</span>
-
-
-                                </div>
-
-
-                                <div data-index="317" data-week="Mon" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">3</span>
-
-
-                                </div>
-
-
-                                <div data-index="318" data-week="Tue" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">4</span>
-
-
-                                </div>
-
-
-                                <div data-index="319" data-week="Wed" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">5</span>
-
-
-                                </div>
-
-
-                                <div data-index="320" data-week="Thu" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">6</span>
-
-
-                                </div>
-
-
-                                <div data-index="321" data-week="Fri" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">7</span>
-
-
-                                </div>
-
-
-                                <div data-index="322" data-week="Sat" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">8</span>
-
-
-                                </div>
-
-
-                                <div data-index="323" data-week="Sun" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">9</span>
-
-
-                                </div>
-
-
-                                <div data-index="324" data-week="Mon" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">10</span>
-
-
-                                </div>
-
-
-                                <div data-index="325" data-week="Tue" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">11</span>
-
-
-                                </div>
-
-
-                                <div data-index="326" data-week="Wed" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">12</span>
-
-
-                                </div>
-
-
-                                <div data-index="327" data-week="Thu" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">13</span>
-
-
-                                </div>
-
-
-                                <div data-index="328" data-week="Fri" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">14</span>
-
-
-                                </div>
-
-
-                                <div data-index="329" data-week="Sat" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">15</span>
-
-
-                                </div>
-
-
-                                <div data-index="330" data-week="Sun" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">16</span>
-
-
-                                </div>
-
-
-                                <div data-index="331" data-week="Mon" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">17</span>
-
-
-                                </div>
-
-
-                                <div data-index="332" data-week="Tue" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">18</span>
-
-
-                                </div>
-
-
-                                <div data-index="333" data-week="Wed" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">19</span>
-
-
-                                </div>
-
-
-                                <div data-index="334" data-week="Thu" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">20</span>
-
-
-                                </div>
-
-
-                                <div data-index="335" data-week="Fri" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">21</span>
-
-
-                                </div>
-
-
-                                <div data-index="336" data-week="Sat" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">22</span>
-
-
-                                </div>
-
-
-                                <div data-index="337" data-week="Sun" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">23</span>
-
-
-                                </div>
-
-
-                                <div data-index="338" data-week="Mon" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">24</span>
-
-
-                                </div>
-
-
-                                <div data-index="339" data-week="Tue" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">25</span>
-
-
-                                </div>
-
-
-                                <div data-index="340" data-week="Wed" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">26</span>
-
-
-                                </div>
-
-
-                                <div data-index="341" data-week="Thu" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">27</span>
-
-
-                                </div>
-
-
-                                <div data-index="342" data-week="Fri" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">28</span>
-
-
-                                </div>
-
-
-                                <div data-index="343" data-week="Sat" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">29</span>
-
-
-                                </div>
-
-
-                                <div data-index="344" data-week="Sun" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">30</span>
-
-
-                                </div>
-
-
-                                <div data-index="345" data-week="Mon" data-month="Oct" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">31</span>
-
-
-                                </div>
-
-
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="swiper-slide">
-                            <div class="text-28 fw-500 text-center mb-10">November 2022</div>
-
-                            <div class="table-calendar js-calendar-single">
-                              <div class="table-calendar__header">
-                                <div>Sun</div>
-                                <div>Mon</div>
-                                <div>Tue</div>
-                                <div>Wed</div>
-                                <div>Thu</div>
-                                <div>Fri</div>
-                                <div>Sat</div>
-                              </div>
-
-                              <div class="table-calendar__grid overflow-hidden">
-
-                                <div data-index="346" data-week="Sun" data-month="Oct" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">30</span>
-
-
-                                </div>
-
-
-                                <div data-index="347" data-week="Mon" data-month="Oct" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">31</span>
-
-
-                                </div>
-
-
-                                <div data-index="348" data-week="Tue" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">1</span>
-
-
-                                </div>
-
-
-                                <div data-index="349" data-week="Wed" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">2</span>
-
-
-                                </div>
-
-
-                                <div data-index="350" data-week="Thu" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">3</span>
-
-
-                                </div>
-
-
-                                <div data-index="351" data-week="Fri" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">4</span>
-
-
-                                </div>
-
-
-                                <div data-index="352" data-week="Sat" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">5</span>
-
-
-                                </div>
-
-
-                                <div data-index="353" data-week="Sun" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">6</span>
-
-
-                                </div>
-
-
-                                <div data-index="354" data-week="Mon" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">7</span>
-
-
-                                </div>
-
-
-                                <div data-index="355" data-week="Tue" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">8</span>
-
-
-                                </div>
-
-
-                                <div data-index="356" data-week="Wed" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">2</span>
-
-
-                                </div>
-
-
-                                <div data-index="357" data-week="Thu" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">3</span>
-
-
-                                </div>
-
-
-                                <div data-index="358" data-week="Fri" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">4</span>
-
-
-                                </div>
-
-
-                                <div data-index="359" data-week="Sat" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">5</span>
-
-
-                                </div>
-
-
-                                <div data-index="360" data-week="Sun" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">6</span>
-
-
-                                </div>
-
-
-                                <div data-index="361" data-week="Mon" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">7</span>
-
-
-                                </div>
-
-
-                                <div data-index="362" data-week="Tue" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">8</span>
-
-
-                                </div>
-
-
-                                <div data-index="363" data-week="Wed" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">9</span>
-
-
-                                </div>
-
-
-                                <div data-index="364" data-week="Thu" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">10</span>
-
-
-                                </div>
-
-
-                                <div data-index="365" data-week="Fri" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">11</span>
-
-
-                                </div>
-
-
-                                <div data-index="366" data-week="Sat" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">12</span>
-
-
-                                </div>
-
-
-                                <div data-index="367" data-week="Sun" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">13</span>
-
-
-                                </div>
-
-
-                                <div data-index="368" data-week="Mon" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">14</span>
-
-
-                                </div>
-
-
-                                <div data-index="369" data-week="Tue" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">15</span>
-
-
-                                </div>
-
-
-                                <div data-index="370" data-week="Wed" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">16</span>
-
-
-                                </div>
-
-
-                                <div data-index="371" data-week="Thu" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">17</span>
-
-
-                                </div>
-
-
-                                <div data-index="372" data-week="Fri" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">18</span>
-
-
-                                </div>
-
-
-                                <div data-index="373" data-week="Sat" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">19</span>
-
-
-                                </div>
-
-
-                                <div data-index="374" data-week="Sun" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">20</span>
-
-
-                                </div>
-
-
-                                <div data-index="375" data-week="Mon" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">21</span>
-
-
-                                </div>
-
-
-                                <div data-index="376" data-week="Tue" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">22</span>
-
-
-                                </div>
-
-
-                                <div data-index="377" data-week="Wed" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">23</span>
-
-
-                                </div>
-
-
-                                <div data-index="378" data-week="Thu" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">24</span>
-
-
-                                </div>
-
-
-                                <div data-index="379" data-week="Fri" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">25</span>
-
-
-                                </div>
-
-
-                                <div data-index="380" data-week="Sat" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">26</span>
-
-
-                                </div>
-
-
-                                <div data-index="381" data-week="Sun" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">27</span>
-
-
-                                </div>
-
-
-                                <div data-index="382" data-week="Mon" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">28</span>
-
-
-                                </div>
-
-
-                                <div data-index="383" data-week="Tue" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">29</span>
-
-
-                                </div>
-
-
-                                <div data-index="384" data-week="Wed" data-month="Nov" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">30</span>
-
-
-                                </div>
-
-
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="swiper-slide">
-                            <div class="text-28 fw-500 text-center mb-10">December 2022</div>
-
-                            <div class="table-calendar js-calendar-single">
-                              <div class="table-calendar__header">
-                                <div>Sun</div>
-                                <div>Mon</div>
-                                <div>Tue</div>
-                                <div>Wed</div>
-                                <div>Thu</div>
-                                <div>Fri</div>
-                                <div>Sat</div>
-                              </div>
-
-                              <div class="table-calendar__grid overflow-hidden">
-
-                                <div data-index="385" data-week="Sun" data-month="Nov" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">27</span>
-
-
-                                </div>
-
-
-                                <div data-index="386" data-week="Mon" data-month="Nov" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">28</span>
-
-
-                                </div>
-
-
-                                <div data-index="387" data-week="Tue" data-month="Nov" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">29</span>
-
-
-                                </div>
-
-
-                                <div data-index="388" data-week="Wed" data-month="Nov" class="table-calendar__cell lh-1 text-light-1">
-                                  <span class="js-date">30</span>
-
-
-                                </div>
-
-
-                                <div data-index="389" data-week="Thu" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">1</span>
-
-
-                                </div>
-
-
-                                <div data-index="390" data-week="Fri" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">2</span>
-
-
-                                </div>
-
-
-                                <div data-index="391" data-week="Sat" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">3</span>
-
-
-                                </div>
-
-
-                                <div data-index="392" data-week="Sun" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">4</span>
-
-
-                                </div>
-
-
-                                <div data-index="393" data-week="Mon" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">5</span>
-
-
-                                </div>
-
-
-                                <div data-index="394" data-week="Tue" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">6</span>
-
-
-                                </div>
-
-
-                                <div data-index="395" data-week="Wed" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">7</span>
-
-
-                                </div>
-
-
-                                <div data-index="396" data-week="Thu" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">8</span>
-
-
-                                </div>
-
-
-                                <div data-index="397" data-week="Fri" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">2</span>
-
-
-                                </div>
-
-
-                                <div data-index="398" data-week="Sat" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">3</span>
-
-
-                                </div>
-
-
-                                <div data-index="399" data-week="Sun" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">4</span>
-
-
-                                </div>
-
-
-                                <div data-index="400" data-week="Mon" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">5</span>
-
-
-                                </div>
-
-
-                                <div data-index="401" data-week="Tue" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">6</span>
-
-
-                                </div>
-
-
-                                <div data-index="402" data-week="Wed" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">7</span>
-
-
-                                </div>
-
-
-                                <div data-index="403" data-week="Thu" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">8</span>
-
-
-                                </div>
-
-
-                                <div data-index="404" data-week="Fri" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">9</span>
-
-
-                                </div>
-
-
-                                <div data-index="405" data-week="Sat" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">10</span>
-
-
-                                </div>
-
-
-                                <div data-index="406" data-week="Sun" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">11</span>
-
-
-                                </div>
-
-
-                                <div data-index="407" data-week="Mon" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">12</span>
-
-
-                                </div>
-
-
-                                <div data-index="408" data-week="Tue" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">13</span>
-
-
-                                </div>
-
-
-                                <div data-index="409" data-week="Wed" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">14</span>
-
-
-                                </div>
-
-
-                                <div data-index="410" data-week="Thu" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">15</span>
-
-
-                                </div>
-
-
-                                <div data-index="411" data-week="Fri" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">16</span>
-
-
-                                </div>
-
-
-                                <div data-index="412" data-week="Sat" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">17</span>
-
-
-                                </div>
-
-
-                                <div data-index="413" data-week="Sun" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">18</span>
-
-
-                                </div>
-
-
-                                <div data-index="414" data-week="Mon" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">19</span>
-
-
-                                </div>
-
-
-                                <div data-index="415" data-week="Tue" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">20</span>
-
-
-                                </div>
-
-
-                                <div data-index="416" data-week="Wed" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">21</span>
-
-
-                                </div>
-
-
-                                <div data-index="417" data-week="Thu" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">22</span>
-
-
-                                </div>
-
-
-                                <div data-index="418" data-week="Fri" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">23</span>
-
-
-                                </div>
-
-
-                                <div data-index="419" data-week="Sat" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">24</span>
-
-
-                                </div>
-
-
-                                <div data-index="420" data-week="Sun" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">25</span>
-
-
-                                </div>
-
-
-                                <div data-index="421" data-week="Mon" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">26</span>
-
-
-                                </div>
-
-
-                                <div data-index="422" data-week="Tue" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">27</span>
-
-
-                                </div>
-
-
-                                <div data-index="423" data-week="Wed" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">28</span>
-
-
-                                </div>
-
-
-                                <div data-index="424" data-week="Thu" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">29</span>
-
-
-                                </div>
-
-
-                                <div data-index="425" data-week="Fri" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">30</span>
-
-
-                                </div>
-
-
-                                <div data-index="426" data-week="Sat" data-month="Dec" class="table-calendar__cell lh-1 ">
-                                  <span class="js-date">31</span>
-
-
-                                </div>
-
-
-                              </div>
-                            </div>
-                          </div>
-
-                        </div>
-
-                        <button class="calendar-icon -left js-calendar-prev z-2">
-                          <i class="icon-arrow-left text-24"></i>
-                        </button>
-
-                        <button class="calendar-icon -right js-calendar-next z-2">
-                          <i class="icon-arrow-right text-24"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="searchMenu-guests px-30 lg:py-20 lg:px-0 js-form-dd js-form-counters">
-
-                  <div data-x-dd-click="searchMenu-guests">
-                    <h4 class="text-15 fw-500 ls-2 lh-16">Guest</h4>
-
-                    <div class="text-15 text-light-1 ls-2 lh-16">
-                      <span class="js-count-adult">2</span> adults
-                      -
-                      <span class="js-count-child">1</span> childeren
-                      -
-                      <span class="js-count-room">1</span> room
-                    </div>
-                  </div>
-
-
-                  <div class="searchMenu-guests__field shadow-2" data-x-dd="searchMenu-guests" data-x-dd-toggle="-is-active">
-                    <div class="bg-white px-30 py-30 rounded-4">
-                      <div class="row y-gap-10 justify-between items-center">
-                        <div class="col-auto">
-                          <div class="text-15 fw-500">Adults</div>
-                        </div>
-
-                        <div class="col-auto">
-                          <div class="d-flex items-center js-counter" data-value-change=".js-count-adult">
-                            <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                              <i class="icon-minus text-12"></i>
-                            </button>
-
-                            <div class="flex-center size-20 ml-15 mr-15">
-                              <div class="text-15 js-count">2</div>
-                            </div>
-
-                            <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                              <i class="icon-plus text-12"></i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="border-top-light mt-24 mb-24"></div>
-
-                      <div class="row y-gap-10 justify-between items-center">
-                        <div class="col-auto">
-                          <div class="text-15 lh-12 fw-500">Children</div>
-                          <div class="text-14 lh-12 text-light-1 mt-5">Ages 0 - 17</div>
-                        </div>
-
-                        <div class="col-auto">
-                          <div class="d-flex items-center js-counter" data-value-change=".js-count-child">
-                            <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                              <i class="icon-minus text-12"></i>
-                            </button>
-
-                            <div class="flex-center size-20 ml-15 mr-15">
-                              <div class="text-15 js-count">1</div>
-                            </div>
-
-                            <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                              <i class="icon-plus text-12"></i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="border-top-light mt-24 mb-24"></div>
-
-                      <div class="row y-gap-10 justify-between items-center">
-                        <div class="col-auto">
-                          <div class="text-15 fw-500">Rooms</div>
-                        </div>
-
-                        <div class="col-auto">
-                          <div class="d-flex items-center js-counter" data-value-change=".js-count-room">
-                            <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                              <i class="icon-minus text-12"></i>
-                            </button>
-
-                            <div class="flex-center size-20 ml-15 mr-15">
-                              <div class="text-15 js-count">1</div>
-                            </div>
-
-                            <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                              <i class="icon-plus text-12"></i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="button-item">
-                  <button class="mainSearch__submit button -dark-1 py-15 px-40 col-12 rounded-100 bg-blue-1 text-white">
-                    <i class="icon-search text-20 mr-10"></i>
-                    Search
-                  </button>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -3493,9 +73,8 @@
             <div class="d-flex pr-30">
               <img class="size-50" src="img/featureIcons/1/1.svg" alt="image">
 
-              <div class="ml-15">
-                <h4 class="text-18 fw-500">Best Price Guarantee</h4>
-                <p class="text-15 mt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <div style="align-items: center;display: flex;" class="ml-15">
+                <h4 class="text-18 fw-500">Mejor precio garantizado</h4>
               </div>
             </div>
           </div>
@@ -3504,9 +83,8 @@
             <div class="d-flex pr-30">
               <img class="size-50" src="img/featureIcons/1/2.svg" alt="image">
 
-              <div class="ml-15">
-                <h4 class="text-18 fw-500">Easy & Quick Booking</h4>
-                <p class="text-15 mt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <div style="align-items: center;display: flex;" class="ml-15">
+                <h4 class="text-18 fw-500">Encuntra lo que buscas de manera fácil y rápida</h4>
               </div>
             </div>
           </div>
@@ -3515,9 +93,8 @@
             <div class="d-flex pr-30">
               <img class="size-50" src="img/featureIcons/1/3.svg" alt="image">
 
-              <div class="ml-15">
-                <h4 class="text-18 fw-500">Customer Care 24/7</h4>
-                <p class="text-15 mt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <div style="align-items: center;display: flex;" class="ml-15">
+                <h4 class="text-18 fw-500">Atención al cliente 24/7</h4>
               </div>
             </div>
           </div>
@@ -3531,8 +108,8 @@
         <div data-anim-child="slide-up delay-1" class="row justify-center text-center">
           <div class="col-auto">
             <div class="sectionTitle -md">
-              <h2 class="sectionTitle__title">Special Offers</h2>
-              <p class=" sectionTitle__text mt-5 sm:mt-0">These popular destinations have a lot to offer</p>
+              <h2 class="sectionTitle__title">Ofertas especiales</h2>
+              <p class=" sectionTitle__text mt-5 sm:mt-0">Descubre las mejores ofertas de nuestro catálogo</p>
             </div>
           </div>
         </div>
@@ -3542,16 +119,16 @@
 
             <div class="ctaCard -type-1 rounded-4 -no-overlay">
               <div class="ctaCard__image ratio ratio-41:35">
-                <img class="img-ratio js-lazy" src="#" data-src="img/features/1.png" alt="image">
+                <img class="img-ratio js-lazy" src="#" data-src="img/backgrounds/proteina.jpg" alt="image">
               </div>
 
               <div class="ctaCard__content py-50 px-50 xl:py-30 xl:px-30">
 
 
-                <h4 class="text-30 xl:text-24 text-white">Things To Do On<br class='lg:d-none'> Your Trip</h4>
+                <h4 class="text-30 xl:text-24 text-white">Descubre los diferentes tipos de proteína</h4>
 
                 <div class="d-inline-block mt-30">
-                  <a href="#" class="button px-48 py-15 -blue-1 -min-180 bg-white text-dark-1">Experiences</a>
+                  <a href="#" class="button px-48 py-15 -blue-1 -min-180 bg-white text-dark-1">Consulta precios</a>
                 </div>
               </div>
             </div>
@@ -3562,18 +139,15 @@
 
             <div class="ctaCard -type-1 rounded-4 -no-overlay">
               <div class="ctaCard__image ratio ratio-41:35">
-                <img class="img-ratio js-lazy" src="#" data-src="img/features/2.png" alt="image">
+                <img class="img-ratio js-lazy" src="#" data-src="img/backgrounds/sudadera.jpg" alt="image">
               </div>
 
               <div class="ctaCard__content py-50 px-50 xl:py-30 xl:px-30">
 
-                <div class="text-15 fw-500 text-white mb-10">Enjoy Summer Deals</div>
-
-
-                <h4 class="text-30 xl:text-24 text-white">Up To 70% Discount!</h4>
+                <h4 class="text-30 xl:text-24 text-white">Descuento en Sudaderas de hasta el 50%!</h4>
 
                 <div class="d-inline-block mt-30">
-                  <a href="#" class="button px-48 py-15 -blue-1 -min-180 bg-white text-dark-1">Learn More</a>
+                  <a href="#" class="button px-48 py-15 -blue-1 -min-180 bg-white text-dark-1">Consulta precios</a>
                 </div>
               </div>
             </div>
@@ -3584,16 +158,16 @@
 
             <div class="ctaCard -type-1 rounded-4 -no-overlay">
               <div class="ctaCard__image ratio ratio-41:35">
-                <img class="img-ratio js-lazy" src="#" data-src="img/features/3.png" alt="image">
+                <img class="img-ratio js-lazy" src="#" data-src="img/backgrounds/accesorios.jpg" alt="image">
               </div>
 
               <div class="ctaCard__content py-50 px-50 xl:py-30 xl:px-30">
 
 
-                <h4 class="text-30 xl:text-24 text-white">Let Your Vuriosity Do Yhe Booking</h4>
+                <h4 class="text-30 xl:text-24 text-white">Los mejores Accesorios para tu deporte</h4>
 
                 <div class="d-inline-block mt-30">
-                  <a href="#" class="button px-48 py-15 -blue-1 -min-180 bg-white text-dark-1">Learn More</a>
+                  <a href="#" class="button px-48 py-15 -blue-1 -min-180 bg-white text-dark-1">Consulta precios</a>
                 </div>
               </div>
             </div>
@@ -3608,13 +182,20 @@
         <div data-anim-child="slide-up delay-1" class="row justify-center text-center">
           <div class="col-auto">
             <div class="sectionTitle -md">
-              <h2 class="sectionTitle__title">Trending Activity</h2>
-              <p class=" sectionTitle__text mt-5 sm:mt-0">Interdum et malesuada fames ac ante ipsum</p>
+              <h2 class="sectionTitle__title">Best Seller Nutrición</h2>
+              <p class=" sectionTitle__text mt-5 sm:mt-0">La suplementación más vendida</p>
             </div>
           </div>
         </div>
 
         <div class="row y-gap-30 pt-40 sm:pt-20">
+
+          <?php
+          // Inicializar un contador
+          $product_query = "SELECT * FROM Producto WHERE nombreCat = 'creatina' AND activo = 1 LIMIT 1";
+          $result = consultar("localhost", "root", "", $product_query);
+          $fila = mysqli_fetch_array($result);
+          ?>
 
           <div data-anim-child="slide-up delay-2" class="col-xl-3 col-lg-3 col-sm-6">
 
@@ -3637,8 +218,8 @@
 
 
                   <div class="cardImage__leftBadge">
-                    <div class="py-5 px-15 rounded-right-4 text-12 lh-16 fw-500 uppercase bg-dark-1 text-white">
-                      LIKELY TO SELL OUT*
+                    <div class="py-5 px-15 rounded-right-4 text-12 lh-16 fw-500 uppercase bg-blue-1 text-white">
+                      Best Seller
                     </div>
                   </div>
 
@@ -3647,30 +228,26 @@
               </div>
 
               <div class="activityCard__content mt-10">
-                <div class="text-14 lh-14 text-light-1 mb-5">6+ hours</div>
-
                 <h4 class="activityCard__title lh-16 fw-500 text-dark-1 text-18">
-                  <span>Golden Circle, Kerid Volcanic Crater, and Blue Lagoon Day Trip</span>
+                  <span><?= $fila['nombre'] ?></span>
                 </h4>
 
-                <p class="text-light-1 text-14 lh-14 mt-5">Westminster Borough, London</p>
+                <?php
+                $idProd = $fila['idProducto'];
+                $carac_query = "SELECT emailVen FROM Caracteristica WHERE idProducto = '$idProd' LIMIT 1";
+                $result_carac = consultar("localhost", "root", "", $carac_query);
+                $reg_carac = mysqli_fetch_array($result_carac);
+                $emailVen = $reg_carac['emailVen'];
 
-                <div class="row justify-between items-center pt-10">
-                  <div class="col-auto">
-                    <div class="d-flex items-center">
-                      <div class="icon-star text-yellow-1 text-10 mr-5"></div>
+                $ven_query = "SELECT nombre FROM UsuVen WHERE emailVen = '$emailVen'";
+                $result_ven = consultar("localhost", "root", "", $ven_query);
+                $reg = mysqli_fetch_array($result_ven);
+                ?>
+                <p class="text-light-1 lh-14 text-14 mt-5"> <b>Vendedor: </b> <?= $reg['nombre'] ?></p>
 
-                      <div class="text-14 text-light-1">
-                        <span class="text-15 text-dark-1 fw-500">4.82</span>
-                        94 reviews
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-auto">
-                    <div class="text-14 text-light-1">
-                      From <span class="text-16 fw-500 text-dark-1">US$72</span>
-                    </div>
+                <div class="mt-5">
+                  <div class="fw-500">
+                    <span class="text-blue-1"><?= $fila['precio'] ?> €</span>
                   </div>
                 </div>
               </div>
@@ -3678,7 +255,14 @@
 
           </div>
 
-          <div data-anim-child="slide-up delay-3" class="col-xl-3 col-lg-3 col-sm-6">
+          <?php
+          // Inicializar un contador
+          $product_query = "SELECT * FROM Producto WHERE nombreCat = 'proteina' AND activo = 1 LIMIT 1";
+          $result = consultar("localhost", "root", "", $product_query);
+          $fila = mysqli_fetch_array($result);
+          ?>
+
+          <div data-anim-child="slide-up delay-2" class="col-xl-3 col-lg-3 col-sm-6">
 
             <a href="activity-single.html" class="activityCard -type-1 rounded-4 ">
               <div class="activityCard__image">
@@ -3686,97 +270,7 @@
                 <div class="cardImage ratio ratio-1:1">
                   <div class="cardImage__content">
 
-
-                    <div class="cardImage-slider rounded-4 overflow-hidden js-cardImage-slider">
-                      <div class="swiper-wrapper">
-
-                        <div class="swiper-slide">
-                          <img class="col-12" src="img/activities/2.png" alt="image">
-                        </div>
-
-                        <div class="swiper-slide">
-                          <img class="col-12" src="img/activities/3.png" alt="image">
-                        </div>
-
-                        <div class="swiper-slide">
-                          <img class="col-12" src="img/activities/4.png" alt="image">
-                        </div>
-
-                        <div class="swiper-slide">
-                          <img class="col-12" src="img/activities/1.png" alt="image">
-                        </div>
-
-                      </div>
-
-                      <div class="cardImage-slider__pagination js-pagination"></div>
-
-                      <div class="cardImage-slider__nav -prev">
-                        <button class="button -blue-1 bg-white size-30 rounded-full shadow-2 js-prev">
-                          <i class="icon-chevron-left text-10"></i>
-                        </button>
-                      </div>
-
-                      <div class="cardImage-slider__nav -next">
-                        <button class="button -blue-1 bg-white size-30 rounded-full shadow-2 js-next">
-                          <i class="icon-chevron-right text-10"></i>
-                        </button>
-                      </div>
-                    </div>
-
-                  </div>
-
-                  <div class="cardImage__wishlist">
-                    <button class="button -blue-1 bg-white size-30 rounded-full shadow-2">
-                      <i class="icon-heart text-12"></i>
-                    </button>
-                  </div>
-
-
-                </div>
-
-              </div>
-
-              <div class="activityCard__content mt-10">
-                <div class="text-14 lh-14 text-light-1 mb-5">6+ hours</div>
-
-                <h4 class="activityCard__title lh-16 fw-500 text-dark-1 text-18">
-                  <span>Edinburgh Sky to Sea Bike Tour by Manual or E-Bike</span>
-                </h4>
-
-                <p class="text-light-1 text-14 lh-14 mt-5">Ciutat Vella, Barcelona</p>
-
-                <div class="row justify-between items-center pt-10">
-                  <div class="col-auto">
-                    <div class="d-flex items-center">
-                      <div class="icon-star text-yellow-1 text-10 mr-5"></div>
-
-                      <div class="text-14 text-light-1">
-                        <span class="text-15 text-dark-1 fw-500">4.82</span>
-                        94 reviews
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-auto">
-                    <div class="text-14 text-light-1">
-                      From <span class="text-16 fw-500 text-dark-1">US$72</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-          </div>
-
-          <div data-anim-child="slide-up delay-4" class="col-xl-3 col-lg-3 col-sm-6">
-
-            <a href="activity-single.html" class="activityCard -type-1 rounded-4 ">
-              <div class="activityCard__image">
-
-                <div class="cardImage ratio ratio-1:1">
-                  <div class="cardImage__content">
-
-                    <img class="rounded-4 col-12" src="img/activities/3.png" alt="image">
+                    <img class="rounded-4 col-12" src="img/activities/1.png" alt="image">
 
 
                   </div>
@@ -3799,30 +293,26 @@
               </div>
 
               <div class="activityCard__content mt-10">
-                <div class="text-14 lh-14 text-light-1 mb-5">6+ hours</div>
-
                 <h4 class="activityCard__title lh-16 fw-500 text-dark-1 text-18">
-                  <span>Natural Crystal Blue Ice Cave Tour of Vatnajökull Glacier</span>
+                  <span><?= $fila['nombre'] ?></span>
                 </h4>
 
-                <p class="text-light-1 text-14 lh-14 mt-5">Manhattan, New York</p>
+                <?php
+                $idProd = $fila['idProducto'];
+                $carac_query = "SELECT emailVen FROM Caracteristica WHERE idProducto = '$idProd' LIMIT 1";
+                $result_carac = consultar("localhost", "root", "", $carac_query);
+                $reg_carac = mysqli_fetch_array($result_carac);
+                $emailVen = $reg_carac['emailVen'];
 
-                <div class="row justify-between items-center pt-10">
-                  <div class="col-auto">
-                    <div class="d-flex items-center">
-                      <div class="icon-star text-yellow-1 text-10 mr-5"></div>
+                $ven_query = "SELECT nombre FROM UsuVen WHERE emailVen = '$emailVen'";
+                $result_ven = consultar("localhost", "root", "", $ven_query);
+                $reg = mysqli_fetch_array($result_ven);
+                ?>
+                <p class="text-light-1 lh-14 text-14 mt-5"> <b>Vendedor: </b> <?= $reg['nombre'] ?></p>
 
-                      <div class="text-14 text-light-1">
-                        <span class="text-15 text-dark-1 fw-500">4.82</span>
-                        94 reviews
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-auto">
-                    <div class="text-14 text-light-1">
-                      From <span class="text-16 fw-500 text-dark-1">US$72</span>
-                    </div>
+                <div class="mt-5">
+                  <div class="fw-500">
+                    <span class="text-blue-1"><?= $fila['precio'] ?> €</span>
                   </div>
                 </div>
               </div>
@@ -3830,7 +320,14 @@
 
           </div>
 
-          <div data-anim-child="slide-up delay-5" class="col-xl-3 col-lg-3 col-sm-6">
+          <?php
+          // Inicializar un contador
+          $product_query = "SELECT * FROM Producto WHERE nombreCat = 'pre_workout' AND activo = 1 LIMIT 1";
+          $result = consultar("localhost", "root", "", $product_query);
+          $fila = mysqli_fetch_array($result);
+          ?>
+
+          <div data-anim-child="slide-up delay-2" class="col-xl-3 col-lg-3 col-sm-6">
 
             <a href="activity-single.html" class="activityCard -type-1 rounded-4 ">
               <div class="activityCard__image">
@@ -3838,7 +335,7 @@
                 <div class="cardImage ratio ratio-1:1">
                   <div class="cardImage__content">
 
-                    <img class="rounded-4 col-12" src="img/activities/4.png" alt="image">
+                    <img class="rounded-4 col-12" src="img/activities/1.png" alt="image">
 
 
                   </div>
@@ -3851,8 +348,8 @@
 
 
                   <div class="cardImage__leftBadge">
-                    <div class="py-5 px-15 rounded-right-4 text-12 lh-16 fw-500 uppercase bg-yellow-1 text-dark-1">
-                      Top Rated
+                    <div class="py-5 px-15 rounded-right-4 text-12 lh-16 fw-500 uppercase bg-blue-1 text-white">
+                      Best Seller
                     </div>
                   </div>
 
@@ -3861,30 +358,91 @@
               </div>
 
               <div class="activityCard__content mt-10">
-                <div class="text-14 lh-14 text-light-1 mb-5">6+ hours</div>
-
                 <h4 class="activityCard__title lh-16 fw-500 text-dark-1 text-18">
-                  <span>South Coast Full Day Tour by Minibus from Reykjavik</span>
+                  <span><?= $fila['nombre'] ?></span>
                 </h4>
 
-                <p class="text-light-1 text-14 lh-14 mt-5">Vaticano Prati, Rome</p>
+                <?php
+                $idProd = $fila['idProducto'];
+                $carac_query = "SELECT emailVen FROM Caracteristica WHERE idProducto = '$idProd' LIMIT 1";
+                $result_carac = consultar("localhost", "root", "", $carac_query);
+                $reg_carac = mysqli_fetch_array($result_carac);
+                $emailVen = $reg_carac['emailVen'];
 
-                <div class="row justify-between items-center pt-10">
-                  <div class="col-auto">
-                    <div class="d-flex items-center">
-                      <div class="icon-star text-yellow-1 text-10 mr-5"></div>
+                $ven_query = "SELECT nombre FROM UsuVen WHERE emailVen = '$emailVen'";
+                $result_ven = consultar("localhost", "root", "", $ven_query);
+                $reg = mysqli_fetch_array($result_ven);
+                ?>
+                <p class="text-light-1 lh-14 text-14 mt-5"> <b>Vendedor: </b> <?= $reg['nombre'] ?></p>
 
-                      <div class="text-14 text-light-1">
-                        <span class="text-15 text-dark-1 fw-500">4.82</span>
-                        94 reviews
-                      </div>
+                <div class="mt-5">
+                  <div class="fw-500">
+                    <span class="text-blue-1"><?= $fila['precio'] ?> €</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+          </div>
+
+          <?php
+          // Inicializar un contador
+          $product_query = "SELECT * FROM Producto WHERE nombreCat = 'energia' AND activo = 1 LIMIT 1";
+          $result = consultar("localhost", "root", "", $product_query);
+          $fila = mysqli_fetch_array($result);
+          ?>
+
+          <div data-anim-child="slide-up delay-2" class="col-xl-3 col-lg-3 col-sm-6">
+
+            <a href="activity-single.html" class="activityCard -type-1 rounded-4 ">
+              <div class="activityCard__image">
+
+                <div class="cardImage ratio ratio-1:1">
+                  <div class="cardImage__content">
+
+                    <img class="rounded-4 col-12" src="img/activities/1.png" alt="image">
+
+
+                  </div>
+
+                  <div class="cardImage__wishlist">
+                    <button class="button -blue-1 bg-white size-30 rounded-full shadow-2">
+                      <i class="icon-heart text-12"></i>
+                    </button>
+                  </div>
+
+
+                  <div class="cardImage__leftBadge">
+                    <div class="py-5 px-15 rounded-right-4 text-12 lh-16 fw-500 uppercase bg-blue-1 text-white">
+                      Best Seller
                     </div>
                   </div>
 
-                  <div class="col-auto">
-                    <div class="text-14 text-light-1">
-                      From <span class="text-16 fw-500 text-dark-1">US$72</span>
-                    </div>
+                </div>
+
+              </div>
+
+              <div class="activityCard__content mt-10">
+                <h4 class="activityCard__title lh-16 fw-500 text-dark-1 text-18">
+                  <span><?= $fila['nombre'] ?></span>
+                </h4>
+
+                <?php
+                $idProd = $fila['idProducto'];
+                $carac_query = "SELECT emailVen FROM Caracteristica WHERE idProducto = '$idProd' LIMIT 1";
+                $result_carac = consultar("localhost", "root", "", $carac_query);
+                $reg_carac = mysqli_fetch_array($result_carac);
+                $emailVen = $reg_carac['emailVen'];
+
+                $ven_query = "SELECT nombre FROM UsuVen WHERE emailVen = '$emailVen'";
+                $result_ven = consultar("localhost", "root", "", $ven_query);
+                $reg = mysqli_fetch_array($result_ven);
+                ?>
+                <p class="text-light-1 lh-14 text-14 mt-5"> <b>Vendedor: </b> <?= $reg['nombre'] ?></p>
+
+                <div class="mt-5">
+                  <div class="fw-500">
+                    <span class="text-blue-1"><?= $fila['precio'] ?> €</span>
                   </div>
                 </div>
               </div>
@@ -3901,8 +459,8 @@
         <div class="row justify-center text-center">
           <div class="col-auto">
             <div class="sectionTitle -md">
-              <h2 class="sectionTitle__title">Adventure &amp; Activity</h2>
-              <p class=" sectionTitle__text mt-5 sm:mt-0">Interdum et malesuada fames ac ante ipsum</p>
+              <h2 class="sectionTitle__title">Prendas</h2>
+              <p class=" sectionTitle__text mt-5 sm:mt-0">Las mejores prendas deportivas al mejor precio</p>
             </div>
           </div>
         </div>
@@ -3911,11 +469,17 @@
 
           <div class="col-xl col-md-4 col-sm-6">
 
-            <a href="tour-single.html" class="tourTypeCard -type-1 d-block rounded-4 bg-white border-light rounded-4">
+            <a href="BD204305407Z/categorias.php?nomCat=camisetaH" class="tourTypeCard -type-1 d-block rounded-4 bg-white border-light rounded-4">
               <div class="tourTypeCard__content text-center pt-60 pb-24 px-30">
-                <i class="icon-camping text-60 sm:text-40 text-blue-1"></i>
-                <h4 class="text-dark-1 text-18 fw-500 mt-50 md:mt-30">Camping</h4>
-                <p class="text-light-1 lh-14 text-14 mt-5">5 Tours From 550$</p>
+                <svg id="mySvg" width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#041b76">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path d="M3 7L6 4H9C9 4.39397 9.0776 4.78407 9.22836 5.14805C9.37913 5.51203 9.6001 5.84274 9.87868 6.12132C10.1573 6.3999 10.488 6.62087 10.8519 6.77164C11.2159 6.9224 11.606 7 12 7C12.394 7 12.7841 6.9224 13.1481 6.77164C13.512 6.62087 13.8427 6.3999 14.1213 6.12132C14.3999 5.84274 14.6209 5.51203 14.7716 5.14805C14.9224 4.78407 15 4.39397 15 4H18L21 7L20.5785 11.2152C20.542 11.5801 20.1382 11.7829 19.8237 11.5942L18 10.5V18C18 19.1046 17.1046 20 16 20H8C6.89543 20 6 19.1046 6 18V10.5L4.17629 11.5942C3.86184 11.7829 3.45801 11.5801 3.42152 11.2152L3 7Z" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </g>
+                </svg>
+                <h4 class="text-dark-1 text-18 fw-500 mt-50 md:mt-30">Camisetas</h4>
+                <p class="text-light-1 lh-14 text-14 mt-5">Desde 15.99€</p>
               </div>
             </a>
 
@@ -3923,11 +487,22 @@
 
           <div class="col-xl col-md-4 col-sm-6">
 
-            <a href="tour-single.html" class="tourTypeCard -type-1 d-block rounded-4 bg-white border-light rounded-4">
+            <a href="BD204305407Z/categorias.php?nomCat=tirantes" class="tourTypeCard -type-1 d-block rounded-4 bg-white border-light rounded-4">
               <div class="tourTypeCard__content text-center pt-60 pb-24 px-30">
-                <i class="icon-hiking-2 text-60 sm:text-40 text-blue-1"></i>
-                <h4 class="text-dark-1 text-18 fw-500 mt-50 md:mt-30">Trekking</h4>
-                <p class="text-light-1 lh-14 text-14 mt-5">5 Tours From 550$</p>
+                <svg id="mySvg" fill="#041b76" width="64px" height="64px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <g id="Shirt">
+                      <g>
+                        <path d="M16.657,21.949H7.343a2.5,2.5,0,0,1-2.5-2.5V11.222a6.468,6.468,0,0,1,.112-1.2L5.224,8.59a5.572,5.572,0,0,0,.094-1.015V3.3a1.252,1.252,0,0,1,1.25-1.25H8.815a1.251,1.251,0,0,1,1.25,1.25V6.413a1.935,1.935,0,0,0,3.87,0V3.3a1.251,1.251,0,0,1,1.25-1.25h2.247a1.252,1.252,0,0,1,1.25,1.25V7.575a5.486,5.486,0,0,0,.1,1.015l.269,1.431a6.57,6.57,0,0,1,.111,1.2v8.227A2.5,2.5,0,0,1,16.657,21.949ZM6.568,3.051a.251.251,0,0,0-.25.25V7.575a6.543,6.543,0,0,1-.111,1.2l-.27,1.432a5.5,5.5,0,0,0-.094,1.015v8.227a1.5,1.5,0,0,0,1.5,1.5h9.314a1.5,1.5,0,0,0,1.5-1.5V11.222a5.519,5.519,0,0,0-.094-1.016l-.269-1.43a6.453,6.453,0,0,1-.112-1.2V3.3a.251.251,0,0,0-.25-.25H15.185a.251.251,0,0,0-.25.25V6.413a2.935,2.935,0,0,1-5.87,0V3.3a.251.251,0,0,0-.25-.25Z"></path>
+                        <path d="M11.986,17.333V13.874a.075.075,0,0,0-.114-.064l-.638.392a.149.149,0,0,1-.228-.128v-.65a.3.3,0,0,1,.145-.258l.764-.457a.3.3,0,0,1,.154-.043H12.7a.3.3,0,0,1,.3.3v4.367a.3.3,0,0,1-.3.3h-.409A.3.3,0,0,1,11.986,17.333Z"></path>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+                <h4 class="text-dark-1 text-18 fw-500 mt-50 md:mt-30">Tirantes</h4>
+                <p class="text-light-1 lh-14 text-14 mt-5">Desde 10€</p>
               </div>
             </a>
 
@@ -3935,11 +510,30 @@
 
           <div class="col-xl col-md-4 col-sm-6">
 
-            <a href="tour-single.html" class="tourTypeCard -type-1 d-block rounded-4 bg-white border-light rounded-4">
+            <a href="BD204305407Z/categorias.php?nomCat=sudaderaH"" class=" tourTypeCard -type-1 d-block rounded-4 bg-white border-light rounded-4">
               <div class="tourTypeCard__content text-center pt-60 pb-24 px-30">
-                <i class="icon-fire text-60 sm:text-40 text-blue-1"></i>
-                <h4 class="text-dark-1 text-18 fw-500 mt-50 md:mt-30">Camp Fire</h4>
-                <p class="text-light-1 lh-14 text-14 mt-5">5 Tours From 550$</p>
+                <svg id="mySvg" fill="#041b76" height="64px" width="64px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <g transform="translate(1 1)">
+                      <g>
+                        <g>
+                          <path d="M436.162,289.133c-7.68-83.627-23.04-147.627-46.933-184.32c-1.707-1.707-11.947-13.653-15.36-17.92 c-0.854-0.854-1.796-1.474-2.777-1.897c-8.632-8.406-16.525-14.493-23.677-16.877c0.853-9.387-1.707-20.48-7.68-30.72 C326.935,13.507,298.775-1,254.402-1s-72.533,14.507-85.333,38.4c-5.973,10.24-8.533,21.333-8.533,30.72 c-6.827,2.56-14.507,8.533-24.747,18.773c-3.413,4.267-7.68,7.68-11.093,11.947c-1.707,2.56-3.413,4.267-4.267,5.12 c-23.893,37.547-39.253,101.547-46.933,185.173c-6.827,66.56-7.68,136.533-6.827,197.973c0,0.291,0,0.57,0,0.853 c0,3.87,0,7.06,0,10.24c0,1.251,0,2.498,0,3.413c0,0.333,0,0.625,0,0.853c0,4.267,4.267,8.533,8.533,8.533h34.133 c3.413,0,6.827-1.707,7.68-5.12l22.369-53.994c1.33,1.242,2.692,2.441,4.084,3.597v38.45c0,9.387,7.68,17.067,17.067,17.067 h187.733c9.387,0,17.067-7.68,17.067-17.067v-37.757c1.689-1.369,3.338-2.796,4.938-4.29l16.489,39.8l5.027,14.194 c1.707,3.413,4.267,5.12,7.68,5.12h0.853h33.28h0.853c4.267,0,8.533-3.413,8.533-8.533c0-0.853,0-1.707,0-4.267 c0-3.413,0-6.827,0-11.093C444.695,425.667,442.989,355.693,436.162,289.133z M419.095,291.693 c4.837,53.202,6.874,108.638,6.569,160.427h-38.968l-4.294-10.24c0.065-1.606,0.126-3.196,0.189-4.794 c0.389-0.962,0.665-1.924,0.665-2.886c3.413-104.96,2.56-191.147-0.853-261.12c-0.693-20.108-1.95-37.398-3.312-51.872 C398.659,155.371,411.429,215.026,419.095,291.693z M425.069,493.933h-19.627l-10.24-25.6h30.282 c-0.103,6.613-0.236,13.171-0.415,19.627C425.069,490.224,425.069,491.823,425.069,493.933z M90.562,290.84 c7.562-74.779,20.092-133.821,39.211-169.017c-1.385,15.054-2.668,32.42-3.371,52.11c-1.65,44.538-2.588,96.175-2.136,155.343 c0.157,34.873,0.837,72.135,2.136,111.751l-4.294,10.24H83.992C83.697,399.806,85.735,343.933,90.562,290.84z M104.215,493.933 H84.589c0-1.517,0-3.708,0-5.973c0-0.284,0-0.568,0-0.853c0-5.768,0-12.266,0-18.773h30.362L104.215,493.933z M348.269,493.933 H160.535v-27.212c3.198,1.63,6.489,3.073,9.863,4.322c0.074,0.028,0.147,0.056,0.222,0.084c0.769,0.282,1.543,0.553,2.32,0.815 c0.098,0.033,0.194,0.068,0.292,0.101c9.489,3.165,19.574,4.824,29.971,4.824h103.253c14.851,0,29.068-3.379,41.813-9.711 V493.933z M320.043,458.592c-0.323,0.057-0.645,0.118-0.969,0.171c-0.397,0.066-0.796,0.124-1.194,0.184 c-0.587,0.087-1.174,0.168-1.763,0.242c-0.266,0.033-0.531,0.069-0.797,0.1c-0.882,0.101-1.766,0.188-2.651,0.26 c-0.169,0.014-0.339,0.023-0.509,0.035c-0.754,0.055-1.509,0.1-2.264,0.133c-0.238,0.011-0.476,0.021-0.714,0.03 c-0.908,0.032-1.817,0.054-2.726,0.054H203.202c-0.911,0-1.822-0.022-2.733-0.054c-0.229-0.008-0.458-0.018-0.687-0.029 c-0.807-0.036-1.613-0.082-2.419-0.143c-0.106-0.008-0.213-0.014-0.319-0.022c-0.964-0.077-1.926-0.172-2.887-0.286 c-0.058-0.007-0.115-0.015-0.172-0.022c-0.965-0.116-1.928-0.249-2.889-0.402c-0.007-0.001-0.015-0.002-0.022-0.003 c-8.013-1.279-15.867-3.834-23.243-7.664c-0.038-0.02-0.075-0.04-0.112-0.06c-0.717-0.374-1.427-0.768-2.135-1.166 c-0.315-0.178-0.631-0.355-0.943-0.538c-0.231-0.134-0.459-0.277-0.69-0.414c-7.752-4.656-14.723-10.758-20.482-18.21 c-1.44-43.552-2.118-83.751-2.167-120.816c0.065-48.697,1.162-92.345,3.021-130.918c1.554-38.862,4.524-69.22,6.331-81.42 c5.819-5.786,10.809-9.947,13.876-11.662c2.178,3.847,5.174,8.198,8.807,12.868c10.24,12.8,23.04,20.48,38.4,20.48 c5.12,0,8.533-3.413,8.533-8.533s-3.413-8.533-8.533-8.533c-9.387,0-17.92-5.12-25.6-13.653c-2.56-3.413-5.12-6.827-6.827-10.24 c-1.091-2.182-1.485-3.661-1.85-4.671c-0.433-8.797,1.378-18.214,6.116-26.902c10.24-19.627,32.427-30.72,70.827-30.72 c38.4,0,60.587,11.093,70.827,29.867c5.12,9.387,6.827,19.627,5.973,28.16c-0.006,0.045-0.005,0.089-0.01,0.134 c-1.918,3.496-6.523,10.852-8.524,13.519c-7.68,8.533-16.213,13.653-25.6,13.653c-5.12,0-8.533,3.413-8.533,8.533 s3.413,8.533,8.533,8.533c15.36,0,28.16-7.68,38.4-20.48c3.71-4.24,6.76-8.809,8.949-12.889 c3.377,1.735,8.944,6.036,14.944,12.036c0,0.853,0.853,10.24,1.707,16.213c1.707,16.213,3.413,36.693,4.267,60.587 c3.413,68.267,4.267,153.6,0.853,256.853C354.567,445.827,338.014,455.384,320.043,458.592z"></path>
+                          <path d="M241.602,101.4h25.6c5.12,0,10.24-2.56,13.653-5.973l20.48-26.453c8.533-11.093,0.853-27.307-13.653-27.307h-66.56 c-14.507,0-22.187,16.213-13.653,27.307l20.48,25.6C231.362,98.84,236.482,101.4,241.602,101.4z M287.682,58.733l-20.48,25.6 h-25.6l-20.48-25.6H287.682z"></path>
+                          <path d="M228.802,203.8c5.12,0,8.533-3.413,8.533-8.533V127c0-5.12-3.413-8.533-8.533-8.533c-5.12,0-8.533,3.413-8.533,8.533 v68.267C220.269,200.387,223.682,203.8,228.802,203.8z"></path>
+                          <path d="M271.469,127v68.267c0,5.12,3.413,8.533,8.533,8.533s8.533-3.413,8.533-8.533V127c0-5.12-3.413-8.533-8.533-8.533 S271.469,121.88,271.469,127z"></path>
+                          <path d="M205.762,359.96l-42.667,42.667c-3.413,3.413-3.413,8.533,0,11.947s8.533,3.413,11.947,0l42.667-42.667 c3.413-3.413,3.413-8.533,0-11.947S209.175,356.547,205.762,359.96z"></path>
+                          <path d="M303.042,359.96c-3.413-3.413-8.533-3.413-11.947,0s-3.413,8.533,0,11.947l42.667,42.667 c3.413,3.413,8.533,3.413,11.947,0s3.413-8.533,0-11.947L303.042,359.96z"></path>
+                          <path d="M339.735,272.067c0-25.6-38.4-42.667-85.333-42.667s-85.333,17.067-85.333,42.667c0,25.6,38.4,42.667,85.333,42.667 S339.735,297.667,339.735,272.067z M254.402,297.667c-38.4,0-68.267-13.653-68.267-25.6c0-11.947,29.867-25.6,68.267-25.6 c38.4,0,68.267,13.653,68.267,25.6C322.669,284.013,292.802,297.667,254.402,297.667z"></path>
+                          <path d="M271.469,263.533h-34.133c-5.12,0-8.533,3.413-8.533,8.533c0,5.12,3.413,8.533,8.533,8.533h34.133 c5.12,0,8.533-3.413,8.533-8.533C280.002,266.947,276.589,263.533,271.469,263.533z"></path>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+                <h4 class="text-dark-1 text-18 fw-500 mt-50 md:mt-30">Sudaderas</h4>
+                <p class="text-light-1 lh-14 text-14 mt-5">Desde 35€</p>
               </div>
             </a>
 
@@ -3947,11 +541,17 @@
 
           <div class="col-xl col-md-4 col-sm-6">
 
-            <a href="tour-single.html" class="tourTypeCard -type-1 d-block rounded-4 bg-white border-light rounded-4">
+            <a href="BD204305407Z/categorias.php?nomCat=pantalon_corto" class="tourTypeCard -type-1 d-block rounded-4 bg-white border-light rounded-4">
               <div class="tourTypeCard__content text-center pt-60 pb-24 px-30">
-                <i class="icon-jeep text-60 sm:text-40 text-blue-1"></i>
-                <h4 class="text-dark-1 text-18 fw-500 mt-50 md:mt-30">Off Road</h4>
-                <p class="text-light-1 lh-14 text-14 mt-5">5 Tours From 550$</p>
+                <svg id="mySvg" fill="#041b76" height="64px" width="64px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 407.272 407.272" xml:space="preserve">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path id="XMLID_49_" d="M277.407,230.753c3.265,3.748,2.874,9.433-0.875,12.698c-18.881,16.449-45.451,25.882-72.897,25.882 c-27.446,0-54.015-9.434-72.896-25.882c-3.748-3.265-4.139-8.951-0.874-12.698c3.266-3.747,8.949-4.139,12.698-0.874 c15.65,13.635,37.91,21.455,61.071,21.455c23.162,0,45.422-7.82,61.074-21.455C268.457,226.614,274.142,227.005,277.407,230.753z M407.129,332.998c-0.001,0.005-0.002,0.011-0.003,0.017c0,0.002-0.001,0.005-0.001,0.008c-0.007,0.04-0.015,0.079-0.022,0.118 l-9.501,48.65c-0.825,4.226-4.527,7.275-8.833,7.275H18.508c-4.305,0-8.008-3.049-8.833-7.274l-9.506-48.658 c0-0.002-0.001-0.005-0.001-0.008c-0.001-0.004-0.002-0.008-0.002-0.013c-0.001-0.006-0.002-0.011-0.003-0.017 c0-0.003-0.001-0.007-0.002-0.01c-0.001-0.008-0.003-0.016-0.004-0.023c0-0.001,0-0.002,0-0.003 c-0.241-1.29-0.194-2.566,0.097-3.765l31.856-145.784c0.903-4.133,4.563-7.079,8.792-7.079h4.343 c15.838,0,28.723-12.885,28.723-28.722V27.206c0-4.971,4.029-9,9-9h47.681c4.971,0,9,4.029,9,9v1.799 c19.96,2.798,41.912,4.268,63.989,4.268c22.078,0,44.028-1.469,63.988-4.268v-1.8c0-4.971,4.029-9,9-9h49.687c4.971,0,9,4.029,9,9 v120.505c0,15.836,12.884,28.721,28.721,28.721h2.343c4.23,0,7.89,2.946,8.792,7.079l31.854,145.782 C407.307,330.472,407.357,331.729,407.129,332.998z M139.647,65.984c18.983,0.301,31.107,1.528,39.174,10.314 c8.723,9.501,9.772,24.814,9.974,55.113v80.432c4.764,1.135,9.734,1.737,14.84,1.737c5.108,0,10.076-0.601,14.841-1.737V131.47 c0.202-30.358,1.251-45.672,9.974-55.172c8.067-8.786,20.189-10.013,39.173-10.314V47.179c-20.187,2.719-41.661,4.094-63.988,4.094 c-22.329,0-43.8-1.375-63.989-4.095V65.984z M241.71,88.471c-4.616,5.028-5.091,21.737-5.233,43.059v72.962 c18.645-11.195,31.146-31.614,31.146-54.9V83.985C254.021,84.201,245,84.887,241.71,88.471z M139.647,149.593 c0,23.286,12.503,43.706,31.148,54.9V131.47c-0.142-21.262-0.617-37.971-5.233-42.999c-3.291-3.584-12.312-4.27-25.915-4.486 V149.593z M20.181,322.408h366.911l-28.021-128.237c-23.44-2.484-41.761-22.372-41.761-46.459V36.206h-31.687v113.387 c0,45.208-36.78,81.987-81.988,81.987c-45.208,0-81.989-36.779-81.989-81.987V36.912c-0.002-0.1-0.002-0.201,0-0.302v-0.405H91.966 V147.71c0,24.781-19.393,45.119-43.8,46.632L20.181,322.408z M387.343,340.408H19.93l5.99,30.658h355.436L387.343,340.408z"></path>
+                  </g>
+                </svg>
+                <h4 class="text-dark-1 text-18 fw-500 mt-50 md:mt-30">crop top</h4>
+                <p class="text-light-1 lh-14 text-14 mt-5">Desde 20€</p>
               </div>
             </a>
 
@@ -3959,11 +559,25 @@
 
           <div class="col-xl col-md-4 col-sm-6">
 
-            <a href="tour-single.html" class="tourTypeCard -type-1 d-block rounded-4 bg-white border-light rounded-4">
+            <a href="BD204305407Z/categorias.php?nomCat=leggins" class="tourTypeCard -type-1 d-block rounded-4 bg-white border-light rounded-4">
               <div class="tourTypeCard__content text-center pt-60 pb-24 px-30">
-                <i class="icon-traveller text-60 sm:text-40 text-blue-1"></i>
-                <h4 class="text-dark-1 text-18 fw-500 mt-50 md:mt-30">Exploring</h4>
-                <p class="text-light-1 lh-14 text-14 mt-5">5 Tours From 550$</p>
+                <svg id="mySvg" fill="#041b76" height="64px" width="64px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 511.997 511.997" xml:space="preserve" stroke="#041b76">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <g transform="translate(1 1)">
+                      <g>
+                        <g>
+                          <path d="M374.465-1H135.532c-4.713,0-8.533,3.82-8.533,8.533v34.131v0.003v443.731c0,14.142,11.458,25.6,25.6,25.6h60.177 c13.876,0,25.23-11.059,25.589-24.927l7.646-290.59c0.131-4.866,4.118-8.749,8.989-8.749s8.857,3.883,8.989,8.755l7.646,290.588 c0.358,13.864,11.713,24.923,25.589,24.923h60.177c14.142,0,25.6-11.458,25.6-25.6V41.667v-0.003V7.533 C382.999,2.82,379.178-1,374.465-1z M365.932,16.067v17.064H254.999H144.065V16.067H365.932z M228.95,195.025l-7.646,290.6 c-0.119,4.619-3.904,8.305-8.528,8.305h-60.177c-4.716,0-8.533-3.817-8.533-8.533V50.2h102.4v120.895 C236.493,174.551,229.25,183.898,228.95,195.025z M357.399,493.931h-60.177c-4.624,0-8.408-3.686-8.528-8.302l-7.646-290.598 c-0.3-11.132-7.544-20.48-17.516-23.936V50.2h102.4v435.197C365.932,490.114,362.115,493.931,357.399,493.931z"></path>
+                          <path d="M229.399,67.264h-68.267c-4.713,0-8.533,3.82-8.533,8.533v68.267c0,3.232,1.826,6.187,4.717,7.632l34.133,17.067 c2.402,1.201,5.23,1.201,7.632,0l34.133-17.067c2.891-1.445,4.717-4.4,4.717-7.632V75.797 C237.932,71.085,234.112,67.264,229.399,67.264z M220.865,138.79l-25.6,12.8l-25.6-12.8V84.331h51.2V138.79z"></path>
+                          <path d="M348.865,67.264h-68.267c-4.713,0-8.533,3.82-8.533,8.533v68.267c0,3.232,1.826,6.187,4.717,7.632l34.133,17.067 c2.402,1.201,5.23,1.201,7.632,0l34.133-17.067c2.891-1.445,4.717-4.4,4.717-7.632V75.797 C357.399,71.085,353.578,67.264,348.865,67.264z M340.332,138.79l-25.6,12.8l-25.6-12.8V84.331h51.2V138.79z"></path>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+                <h4 class="text-dark-1 text-18 fw-500 mt-50 md:mt-30">Leggins</h4>
+                <p class="text-light-1 lh-14 text-14 mt-5">Desde 35€</p>
               </div>
             </a>
 
@@ -3978,16 +592,9 @@
         <div data-anim-child="slide-up delay-1" class="row y-gap-20 justify-between items-end">
           <div class="col-auto">
             <div class="sectionTitle -md">
-              <h2 class="sectionTitle__title">Popular Destinations</h2>
-              <p class=" sectionTitle__text mt-5 sm:mt-0">These popular destinations have a lot to offer</p>
+              <h2 class="sectionTitle__title">Accesorios Populares</h2>
+              <p class=" sectionTitle__text mt-5 sm:mt-0">Descubre nuestro catálogo de accesorios</p>
             </div>
-          </div>
-
-          <div class="col-auto">
-            <a href="#" class="button -blue-1 -md bg-blue-1-05 text-blue-1">
-              View All Destinations
-              <i class="icon-arrow-top-right ml-10"></i>
-            </a>
           </div>
         </div>
 
@@ -3996,21 +603,20 @@
 
             <div class="swiper-slide">
 
-              <a href="#" class="citiesCard -type-1 d-block rounded-4 ">
+              <a href="BD204305407Z/categorias.php?nomCat=cascos" class="citiesCard -type-1 d-block rounded-4 ">
                 <div class="citiesCard__image ratio ratio-3:4">
-                  <img src="#" data-src="img/destinations/1/1.webp" alt="image" class="js-lazy">
+                  <img src="#" data-src="img/backgrounds/cascos.jpg" alt="image" class="js-lazy">
                 </div>
 
                 <div class="citiesCard__content d-flex flex-column justify-between text-center pt-30 pb-20 px-20">
                   <div class="citiesCard__bg"></div>
 
                   <div class="citiesCard__top">
-                    <div class="text-14 text-white">14 Hotel - 22 Cars - 18 Tours - 95 Activity</div>
                   </div>
 
                   <div class="citiesCard__bottom">
-                    <h4 class="text-26 md:text-20 lh-13 text-white mb-20">New York</h4>
-                    <button class="button col-12 h-60 -blue-1 bg-white text-dark-1">Discover</button>
+                    <h4 class="text-26 md:text-20 lh-13 text-dark-1 mb-20">Cascos</h4>
+                    <button class="button col-12 h-60 -blue-1 bg-white text-dark-1">Descubre</button>
                   </div>
                 </div>
               </a>
@@ -4019,21 +625,20 @@
 
             <div class="swiper-slide">
 
-              <a href="#" class="citiesCard -type-1 d-block rounded-4 ">
+              <a href="BD204305407Z/categorias.php?nomCat=gorras" class="citiesCard -type-1 d-block rounded-4 ">
                 <div class="citiesCard__image ratio ratio-3:4">
-                  <img src="#" data-src="img/destinations/1/2.webp" alt="image" class="js-lazy">
+                  <img src="#" data-src="img/backgrounds/gorras.jpg" alt="image" class="js-lazy">
                 </div>
 
                 <div class="citiesCard__content d-flex flex-column justify-between text-center pt-30 pb-20 px-20">
                   <div class="citiesCard__bg"></div>
 
                   <div class="citiesCard__top">
-                    <div class="text-14 text-white">14 Hotel - 22 Cars - 18 Tours - 95 Activity</div>
                   </div>
 
                   <div class="citiesCard__bottom">
-                    <h4 class="text-26 md:text-20 lh-13 text-white mb-20">London</h4>
-                    <button class="button col-12 h-60 -blue-1 bg-white text-dark-1">Discover</button>
+                    <h4 class="text-26 md:text-20 lh-13 text-dark-1 mb-20">Gorras</h4>
+                    <button class="button col-12 h-60 -blue-1 bg-white text-dark-1">Descubre</button>
                   </div>
                 </div>
               </a>
@@ -4042,21 +647,20 @@
 
             <div class="swiper-slide">
 
-              <a href="#" class="citiesCard -type-1 d-block rounded-4 ">
+              <a href="BD204305407Z/categorias.php?nomCat=mochilas" class="citiesCard -type-1 d-block rounded-4 ">
                 <div class="citiesCard__image ratio ratio-3:4">
-                  <img src="#" data-src="img/destinations/1/3.webp" alt="image" class="js-lazy">
+                  <img src="#" data-src="img/backgrounds/mochilas.jpg" alt="image" class="js-lazy">
                 </div>
 
                 <div class="citiesCard__content d-flex flex-column justify-between text-center pt-30 pb-20 px-20">
                   <div class="citiesCard__bg"></div>
 
                   <div class="citiesCard__top">
-                    <div class="text-14 text-white">14 Hotel - 22 Cars - 18 Tours - 95 Activity</div>
                   </div>
 
                   <div class="citiesCard__bottom">
-                    <h4 class="text-26 md:text-20 lh-13 text-white mb-20">Barcelona</h4>
-                    <button class="button col-12 h-60 -blue-1 bg-white text-dark-1">Discover</button>
+                    <h4 class="text-26 md:text-20 lh-13 text-dark-1 mb-20">Mochilas</h4>
+                    <button class="button col-12 h-60 -blue-1 bg-white text-dark-1">Descubre</button>
                   </div>
                 </div>
               </a>
@@ -4065,21 +669,20 @@
 
             <div class="swiper-slide">
 
-              <a href="#" class="citiesCard -type-1 d-block rounded-4 ">
+              <a href="BD204305407Z/categorias.php?nomCat=calcetines" class="citiesCard -type-1 d-block rounded-4 ">
                 <div class="citiesCard__image ratio ratio-3:4">
-                  <img src="#" data-src="img/destinations/1/4.webp" alt="image" class="js-lazy">
+                  <img src="#" data-src="img/backgrounds/calcetines.jpg" alt="image" class="js-lazy">
                 </div>
 
                 <div class="citiesCard__content d-flex flex-column justify-between text-center pt-30 pb-20 px-20">
                   <div class="citiesCard__bg"></div>
 
                   <div class="citiesCard__top">
-                    <div class="text-14 text-white">14 Hotel - 22 Cars - 18 Tours - 95 Activity</div>
                   </div>
 
                   <div class="citiesCard__bottom">
-                    <h4 class="text-26 md:text-20 lh-13 text-white mb-20">Sydney</h4>
-                    <button class="button col-12 h-60 -blue-1 bg-white text-dark-1">Discover</button>
+                    <h4 class="text-26 md:text-20 lh-13 text-dark-1 mb-20">Calcetines</h4>
+                    <button class="button col-12 h-60 -blue-1 bg-white text-dark-1">Descubre</button>
                   </div>
                 </div>
               </a>
@@ -4088,21 +691,20 @@
 
             <div class="swiper-slide">
 
-              <a href="#" class="citiesCard -type-1 d-block rounded-4 ">
+              <a href="BD204305407Z/categorias.php?nomCat=chanclas" class="citiesCard -type-1 d-block rounded-4 ">
                 <div class="citiesCard__image ratio ratio-3:4">
-                  <img src="#" data-src="img/destinations/1/5.webp" alt="image" class="js-lazy">
+                  <img src="#" data-src="img/backgrounds/chanclas.jpg" alt="image" class="js-lazy">
                 </div>
 
                 <div class="citiesCard__content d-flex flex-column justify-between text-center pt-30 pb-20 px-20">
                   <div class="citiesCard__bg"></div>
 
                   <div class="citiesCard__top">
-                    <div class="text-14 text-white">14 Hotel - 22 Cars - 18 Tours - 95 Activity</div>
                   </div>
 
                   <div class="citiesCard__bottom">
-                    <h4 class="text-26 md:text-20 lh-13 text-white mb-20">Rome</h4>
-                    <button class="button col-12 h-60 -blue-1 bg-white text-dark-1">Discover</button>
+                    <h4 class="text-26 md:text-20 lh-13 text-dark-1 mb-20">Chanclas</h4>
+                    <button class="button col-12 h-60 -blue-1 bg-white text-dark-1">Descubre</button>
                   </div>
                 </div>
               </a>
@@ -4116,560 +718,9 @@
       </div>
     </section>
 
-    <section class="section-bg layout-pt-lg layout-pb-lg bg-light-2">
-      <div class="section-bg__item col-12">
-        <img src="img/backgrounds/testimonials/bg-2.svg" alt="image">
-      </div>
-
-      <div data-anim-wrap class="container">
-        <div data-anim-child="slide-up delay-1" class="row justify-center text-center">
-          <div class="col-auto">
-            <div class="sectionTitle -md">
-              <h2 class="sectionTitle__title">Testimonials</h2>
-              <p class=" sectionTitle__text mt-5 sm:mt-0">Interdum et malesuada fames ac ante ipsum</p>
-            </div>
-          </div>
-        </div>
-
-        <div data-anim-child="slide-up delay-2" class="row justify-center pt-50 md:pt-30">
-          <div class="col-xl-7 col-lg-10">
-            <div class="overflow-hidden js-testimonials-slider">
-              <div class="swiper-wrapper">
-
-                <div class="swiper-slide">
-                  <div class="testimonials -type-2 text-center">
-                    <div class="mb-40">
-                      <img src="img/misc/quote.svg" alt="quote">
-                    </div>
-
-                    <div class="text-22 md:text-18 fw-600 text-dark-1">
-                      "Our family was traveling via bullet train between cities in Japan with our luggage - the location for this hotel made that so easy. Agoda price was fantastic."
-                    </div>
-
-                    <div class="mt-40">
-                      <h5 class="text-17 lh-15 fw-500">Ali Tufan</h5>
-                      <div class="">Product Manager, Apple Inc</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="swiper-slide">
-                  <div class="testimonials -type-2 text-center">
-                    <div class="mb-40">
-                      <img src="img/misc/quote.svg" alt="quote">
-                    </div>
-
-                    <div class="text-22 md:text-18 fw-600 text-dark-1">
-                      "Our family was traveling via bullet train between cities in Japan with our luggage - the location for this hotel made that so easy. Agoda price was fantastic."
-                    </div>
-
-                    <div class="mt-40">
-                      <h5 class="text-17 lh-15 fw-500">Ali Tufan</h5>
-                      <div class="">Product Manager, Apple Inc</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="swiper-slide">
-                  <div class="testimonials -type-2 text-center">
-                    <div class="mb-40">
-                      <img src="img/misc/quote.svg" alt="quote">
-                    </div>
-
-                    <div class="text-22 md:text-18 fw-600 text-dark-1">
-                      "Our family was traveling via bullet train between cities in Japan with our luggage - the location for this hotel made that so easy. Agoda price was fantastic."
-                    </div>
-
-                    <div class="mt-40">
-                      <h5 class="text-17 lh-15 fw-500">Ali Tufan</h5>
-                      <div class="">Product Manager, Apple Inc</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="swiper-slide">
-                  <div class="testimonials -type-2 text-center">
-                    <div class="mb-40">
-                      <img src="img/misc/quote.svg" alt="quote">
-                    </div>
-
-                    <div class="text-22 md:text-18 fw-600 text-dark-1">
-                      "Our family was traveling via bullet train between cities in Japan with our luggage - the location for this hotel made that so easy. Agoda price was fantastic."
-                    </div>
-
-                    <div class="mt-40">
-                      <h5 class="text-17 lh-15 fw-500">Ali Tufan</h5>
-                      <div class="">Product Manager, Apple Inc</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="swiper-slide">
-                  <div class="testimonials -type-2 text-center">
-                    <div class="mb-40">
-                      <img src="img/misc/quote.svg" alt="quote">
-                    </div>
-
-                    <div class="text-22 md:text-18 fw-600 text-dark-1">
-                      "Our family was traveling via bullet train between cities in Japan with our luggage - the location for this hotel made that so easy. Agoda price was fantastic."
-                    </div>
-
-                    <div class="mt-40">
-                      <h5 class="text-17 lh-15 fw-500">Ali Tufan</h5>
-                      <div class="">Product Manager, Apple Inc</div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="pt-60 lg:pt-40">
-                <div class="pagination -avatars row x-gap-40 y-gap-20 justify-center js-testimonials-pagination">
-
-                  <div class="col-auto">
-                    <div class="pagination__item is-active">
-                      <img src="img/avatars/testimonials/1.png" alt="image">
-                    </div>
-                  </div>
-
-                  <div class="col-auto">
-                    <div class="pagination__item ">
-                      <img src="img/avatars/testimonials/2.png" alt="image">
-                    </div>
-                  </div>
-
-                  <div class="col-auto">
-                    <div class="pagination__item ">
-                      <img src="img/avatars/testimonials/3.png" alt="image">
-                    </div>
-                  </div>
-
-                  <div class="col-auto">
-                    <div class="pagination__item ">
-                      <img src="img/avatars/testimonials/4.png" alt="image">
-                    </div>
-                  </div>
-
-                  <div class="col-auto">
-                    <div class="pagination__item ">
-                      <img src="img/avatars/testimonials/5.png" alt="image">
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="layout-pt-lg layout-pb-md">
-      <div data-anim-wrap class="container">
-        <div data-anim-child="slide-up delay-1" class="row justify-center text-center">
-          <div class="col-auto">
-            <div class="sectionTitle -md">
-              <h2 class="sectionTitle__title">Recommended Activity</h2>
-              <p class=" sectionTitle__text mt-5 sm:mt-0">Interdum et malesuada fames ac ante ipsum</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="row y-gap-30 pt-40 sm:pt-20">
-
-          <div data-anim-child="slide-up delay-2" class="col-xl col-md-4 col-sm-6">
-
-            <a href="activity-single.html" class="activityCard -type-1 rounded-4 ">
-              <div class="activityCard__image">
-
-                <div class="cardImage ratio ratio-1:1">
-                  <div class="cardImage__content">
-
-                    <img class="rounded-4 col-12" src="img/activities/2/1.png" alt="image">
-
-
-                  </div>
-
-                  <div class="cardImage__wishlist">
-                    <button class="button -blue-1 bg-white size-30 rounded-full shadow-2">
-                      <i class="icon-heart text-12"></i>
-                    </button>
-                  </div>
-
-
-                  <div class="cardImage__leftBadge">
-                    <div class="py-5 px-15 rounded-right-4 text-12 lh-16 fw-500 uppercase bg-dark-1 text-white">
-                      LIKELY TO SELL OUT*
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-
-              <div class="activityCard__content mt-10">
-                <div class="text-14 lh-14 text-light-1 mb-5">6+ hours</div>
-
-                <h4 class="activityCard__title lh-16 fw-500 text-dark-1 text-16">
-                  <span>Golden Circle, Kerid Volcanic Crater, and Blue Lagoon Day</span>
-                </h4>
-
-                <p class="text-light-1 text-14 lh-14 mt-5">Westminster Borough, London</p>
-
-                <div class="row justify-between items-center pt-10">
-                  <div class="col-12">
-                    <div class="d-flex items-center">
-                      <div class="icon-star text-yellow-1 text-10 mr-5"></div>
-
-                      <div class="text-14 text-light-1">
-                        <span class="text-15 text-dark-1 fw-500">4.82</span>
-                        94 reviews
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-12">
-                    <div class="text-14 text-light-1">
-                      From <span class="text-16 fw-500 text-dark-1">US$72</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-          </div>
-
-          <div data-anim-child="slide-up delay-3" class="col-xl col-md-4 col-sm-6">
-
-            <a href="activity-single.html" class="activityCard -type-1 rounded-4 ">
-              <div class="activityCard__image">
-
-                <div class="cardImage ratio ratio-1:1">
-                  <div class="cardImage__content">
-
-                    <img class="rounded-4 col-12" src="img/activities/2/2.png" alt="image">
-
-
-                  </div>
-
-                  <div class="cardImage__wishlist">
-                    <button class="button -blue-1 bg-white size-30 rounded-full shadow-2">
-                      <i class="icon-heart text-12"></i>
-                    </button>
-                  </div>
-
-
-                </div>
-
-              </div>
-
-              <div class="activityCard__content mt-10">
-                <div class="text-14 lh-14 text-light-1 mb-5">6+ hours</div>
-
-                <h4 class="activityCard__title lh-16 fw-500 text-dark-1 text-16">
-                  <span>Edinburgh Sky to Sea Bike Tour by Manual or E-Bike</span>
-                </h4>
-
-                <p class="text-light-1 text-14 lh-14 mt-5">Ciutat Vella, Barcelona</p>
-
-                <div class="row justify-between items-center pt-10">
-                  <div class="col-12">
-                    <div class="d-flex items-center">
-                      <div class="icon-star text-yellow-1 text-10 mr-5"></div>
-
-                      <div class="text-14 text-light-1">
-                        <span class="text-15 text-dark-1 fw-500">4.82</span>
-                        94 reviews
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-12">
-                    <div class="text-14 text-light-1">
-                      From <span class="text-16 fw-500 text-dark-1">US$72</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-          </div>
-
-          <div data-anim-child="slide-up delay-4" class="col-xl col-md-4 col-sm-6">
-
-            <a href="activity-single.html" class="activityCard -type-1 rounded-4 ">
-              <div class="activityCard__image">
-
-                <div class="cardImage ratio ratio-1:1">
-                  <div class="cardImage__content">
-
-                    <img class="rounded-4 col-12" src="img/activities/2/3.png" alt="image">
-
-
-                  </div>
-
-                  <div class="cardImage__wishlist">
-                    <button class="button -blue-1 bg-white size-30 rounded-full shadow-2">
-                      <i class="icon-heart text-12"></i>
-                    </button>
-                  </div>
-
-
-                  <div class="cardImage__leftBadge">
-                    <div class="py-5 px-15 rounded-right-4 text-12 lh-16 fw-500 uppercase bg-blue-1 text-white">
-                      Best Seller
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-
-              <div class="activityCard__content mt-10">
-                <div class="text-14 lh-14 text-light-1 mb-5">6+ hours</div>
-
-                <h4 class="activityCard__title lh-16 fw-500 text-dark-1 text-16">
-                  <span>Natural Crystal Blue Ice Cave Tour of Vatnajökull Glacier</span>
-                </h4>
-
-                <p class="text-light-1 text-14 lh-14 mt-5">Manhattan, New York</p>
-
-                <div class="row justify-between items-center pt-10">
-                  <div class="col-12">
-                    <div class="d-flex items-center">
-                      <div class="icon-star text-yellow-1 text-10 mr-5"></div>
-
-                      <div class="text-14 text-light-1">
-                        <span class="text-15 text-dark-1 fw-500">4.82</span>
-                        94 reviews
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-12">
-                    <div class="text-14 text-light-1">
-                      From <span class="text-16 fw-500 text-dark-1">US$72</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-          </div>
-
-          <div data-anim-child="slide-up delay-5" class="col-xl col-md-4 col-sm-6">
-
-            <a href="activity-single.html" class="activityCard -type-1 rounded-4 ">
-              <div class="activityCard__image">
-
-                <div class="cardImage ratio ratio-1:1">
-                  <div class="cardImage__content">
-
-                    <img class="rounded-4 col-12" src="img/activities/2/4.png" alt="image">
-
-
-                  </div>
-
-                  <div class="cardImage__wishlist">
-                    <button class="button -blue-1 bg-white size-30 rounded-full shadow-2">
-                      <i class="icon-heart text-12"></i>
-                    </button>
-                  </div>
-
-
-                  <div class="cardImage__leftBadge">
-                    <div class="py-5 px-15 rounded-right-4 text-12 lh-16 fw-500 uppercase bg-yellow-1 text-dark-1">
-                      Top Rated
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-
-              <div class="activityCard__content mt-10">
-                <div class="text-14 lh-14 text-light-1 mb-5">6+ hours</div>
-
-                <h4 class="activityCard__title lh-16 fw-500 text-dark-1 text-16">
-                  <span>South Coast Full Day Tour by Minibus from Reykjavik</span>
-                </h4>
-
-                <p class="text-light-1 text-14 lh-14 mt-5">Vaticano Prati, Rome</p>
-
-                <div class="row justify-between items-center pt-10">
-                  <div class="col-12">
-                    <div class="d-flex items-center">
-                      <div class="icon-star text-yellow-1 text-10 mr-5"></div>
-
-                      <div class="text-14 text-light-1">
-                        <span class="text-15 text-dark-1 fw-500">4.82</span>
-                        94 reviews
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-12">
-                    <div class="text-14 text-light-1">
-                      From <span class="text-16 fw-500 text-dark-1">US$72</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-          </div>
-
-          <div data-anim-child="slide-up delay-6" class="col-xl col-md-4 col-sm-6">
-
-            <a href="activity-single.html" class="activityCard -type-1 rounded-4 ">
-              <div class="activityCard__image">
-
-                <div class="cardImage ratio ratio-1:1">
-                  <div class="cardImage__content">
-
-                    <img class="rounded-4 col-12" src="img/activities/2/5.png" alt="image">
-
-
-                  </div>
-
-                  <div class="cardImage__wishlist">
-                    <button class="button -blue-1 bg-white size-30 rounded-full shadow-2">
-                      <i class="icon-heart text-12"></i>
-                    </button>
-                  </div>
-
-
-                  <div class="cardImage__leftBadge">
-                    <div class="py-5 px-15 rounded-right-4 text-12 lh-16 fw-500 uppercase bg-dark-1 text-white">
-                      Likely to sell out
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-
-              <div class="activityCard__content mt-10">
-                <div class="text-14 lh-14 text-light-1 mb-5">6+ hours</div>
-
-                <h4 class="activityCard__title lh-16 fw-500 text-dark-1 text-16">
-                  <span>Golden Circle, Kerid Volcanic Crater, and Blue Lagoon Day</span>
-                </h4>
-
-                <p class="text-light-1 text-14 lh-14 mt-5">Westminster Borough, London</p>
-
-                <div class="row justify-between items-center pt-10">
-                  <div class="col-12">
-                    <div class="d-flex items-center">
-                      <div class="icon-star text-yellow-1 text-10 mr-5"></div>
-
-                      <div class="text-14 text-light-1">
-                        <span class="text-15 text-dark-1 fw-500">4.82</span>
-                        94 reviews
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-12">
-                    <div class="text-14 text-light-1">
-                      From <span class="text-16 fw-500 text-dark-1">US$72</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="layout-pt-md layout-pb-lg">
-      <div class="container">
-        <div class="row y-gap-30 items-center justify-between">
-          <div class="col-xl-6">
-            <img src="img/app/2.svg" alt="image">
-          </div>
-
-          <div class="col-xl-5">
-            <h2 class="text-30 lh-15">Download the App</h2>
-            <p class="text-dark-1 pr-40 lg:pr-0 mt-15 sm:mt-5">Book in advance or last-minute with GoTrip. Receive instant confirmation. Access your booking info offline.</p>
-
-            <div class="row items-center pt-30 sm:pt-10">
-              <div class="col-auto">
-                <div class="d-flex items-center px-20 py-10 rounded-8 border-white-15 text-white bg-dark-3">
-                  <div class="icon-apple text-24"></div>
-                  <div class="ml-20">
-                    <div class="text-14">Download on the</div>
-                    <div class="text-15 lh-1 fw-500">Apple Store</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-auto">
-                <div class="d-flex items-center px-20 py-10 rounded-8 border-white-15 text-white bg-dark-3">
-                  <div class="icon-play-market text-24"></div>
-                  <div class="ml-20">
-                    <div class="text-14">Get in on</div>
-                    <div class="text-15 lh-1 fw-500">Google Play</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="layout-pt-md layout-pb-lg">
-      <div data-anim-wrap class="container">
-        <div data-anim-child="slide-up delay-1" class="row justify-center text-center">
-          <div class="col-auto">
-            <div class="sectionTitle -md">
-              <h2 class="sectionTitle__title">Get inspiration for your next trip</h2>
-              <p class=" sectionTitle__text mt-5 sm:mt-0">Interdum et malesuada fames</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="row y-gap-30 pt-40">
-
-          <div data-anim-child="slide-up delay-2" class="col-lg-6">
-            <a href="blog-single-1.html" class="row y-gap-20 items-center">
-              <div class="col-auto">
-                <img class="size-250 rounded-4" src="img/blog/1.png" alt="image">
-              </div>
-
-              <div class="col">
-                <div class="text-15 text-light-1">April 06, 2022</div>
-                <h4 class="text-22 fw-600 text-dark-1 mt-10">10 European ski destinations you should visit this winter</h4>
-                <p class="mt-10">Ut enim ad minim veniam, quis nostrud exerc ullamco laboris nisi ut aliquip.</p>
-              </div>
-            </a>
-          </div>
-
-          <div data-anim-child="slide-up delay-3" class="col-lg-6">
-            <a href="blog-single-1.html" class="row y-gap-20 items-center">
-              <div class="col-auto">
-                <img class="size-250 rounded-4" src="img/blog/2.png" alt="image">
-              </div>
-
-              <div class="col">
-                <div class="text-15 text-light-1">April 06, 2022</div>
-                <h4 class="text-22 fw-600 text-dark-1 mt-10">Booking travel during Corona: good advice in an uncertain time</h4>
-                <p class="mt-10">Ut enim ad minim veniam, quis nostrud exerc ullamco laboris nisi ut aliquip.</p>
-              </div>
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-<?php
-  include ('footer.php');
-?>
+    <?php
+    include('footer.php');
+    ?>
 
   </main>
 

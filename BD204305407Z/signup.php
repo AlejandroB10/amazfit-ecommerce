@@ -54,7 +54,7 @@
 
           <div class="col-auto">
             <div class="d-flex items-center">
-              <a href="index.html" class="header-logo mr-20" data-x="header-logo" data-x-toggle="is-logo-dark">
+              <a href="../index.php" class="header-logo mr-20" data-x="header-logo" data-x-toggle="is-logo-dark">
                 <img src="../img/general/logo-dark.svg" alt="logo icon">
                 <img src="../img/general/logo-dark.svg" alt="logo icon">
               </a>

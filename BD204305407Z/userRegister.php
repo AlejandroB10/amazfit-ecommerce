@@ -8,7 +8,7 @@ $password = $_POST['password'];
 
 $insert_user = "SELECT addUserCli('$email', '$password', '$nom', '$ape')";
 
-$result = consultar("localhost", "root", "dbpass", $insert_user);
+$result = consultar("localhost", "root", "", $insert_user);
 
 echo json_encode(mysqli_fetch_array($result));
 ?>

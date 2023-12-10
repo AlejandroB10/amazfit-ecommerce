@@ -1,3 +1,28 @@
+<?php
+include('../conexion.php');
+
+session_start();
+$user = $_SESSION['user'];
+$num_cart = 0;
+
+if (isset($_SESSION['carrito']['producto'])) {
+  $num_cart = count($_SESSION['carrito']['producto']);
+}
+
+$user_query = "SELECT * FROM UsuCli WHERE emailCli = '$user'";
+$result = consultar("localhost", "root", "", $user_query);
+$reg = mysqli_fetch_array($result);
+
+$user_data = [
+  'nombre' => $reg['nombre'],
+  'apellido' => $reg['apellido'],
+  'email' => $user,
+  'password' => $reg['password'],
+  'fechaNac' => $reg['dateBirth'],
+  'phone' => $reg['phone'],
+];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +39,61 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="../css/vendors.css">
   <link rel="stylesheet" href="../css/main.css">
+  <style>
+    /* Añade estilos CSS según sea necesario */
+    .tabs__pane {
+      display: none;
+    }
 
+    .tabs__pane.is-tab-el-active {
+      display: block;
+    }
+
+    .password-toggle {
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+      top: 50%;
+      right: 0;
+      transform: translateY(40%);
+      background-color: blue;
+      /* Fondo azul predeterminado */
+      padding: 5px;
+      border-radius: 5px;
+      color: white;
+      transition: background-color 0.3s ease;
+      /* Transición de color de fondo */
+    }
+
+    .password-toggle.active {
+      background-color: red;
+      /* Fondo rojo cuando se está pulsando */
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .dashboard__main {
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+      padding-left: var(--dashboard-width);
+      will-change: padding-left;
+      transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    .dashboard__content {
+      width: 100%;
+      min-height: 100vh;
+      /* vh significa viewport height */
+      padding: 60px;
+      padding-bottom: 0;
+    }
+  </style>
   <title>AmazFit</title>
 </head>
 
@@ -46,9 +125,9 @@
   <header data-add-bg="" class="header -dashboard bg-white js-header" data-x="header" data-x-toggle="is-menu-opened">
     <div data-anim="fade" class="header__container px-30 sm:px-20">
       <div class="-left-side">
-        <a href="index.html" class="header-logo" data-x="header-logo" data-x-toggle="is-logo-dark">
-          <img src="img/general/logo-dark.svg" alt="logo icon">
-          <img src="img/general/logo-dark.svg" alt="logo icon">
+        <a href="../index.php" class="header-logo" data-x="header-logo" data-x-toggle="is-logo-dark">
+          <img src="../img/general/logo-dark.svg" alt="logo icon">
+          <img src="../img/general/logo-dark.svg" alt="logo icon">
         </a>
       </div>
 
@@ -80,23 +159,17 @@
             </div>
 
 
-            <div class="row items-center x-gap-5 y-gap-20 pl-20 lg:d-none">
-              <div class="col-auto">
-                <button class="button -blue-1-05 size-50 rounded-22 flex-center">
-                  <i class="icon-email-2 text-20"></i>
-                </button>
-              </div>
+            <a href="checkout.php" class="button px-5 fw-400 rounded-full text-14 border-white -blue-1 h-50 text-white ml-20" aria-label="Cesta">
+              <span class="responsiveFlyoutBasket_icon_container">
+                <svg fill="#000" class="text-13 text-light fw-500 responsiveFlyoutBasket_icon responsiveFlyoutBasket_icon-basket" width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M6.57412994,10 L17.3932043,10 L13.37,4.18336196 L15.0021928,3 L19.8438952,10 L21,10 C21.5522847,10 22,10.4477153 22,11 C22,11.5522847 21.5522847,12 21,12 L17.5278769,19.8122769 C17.2068742,20.534533 16.4906313,21 15.7002538,21 L8.29974618,21 C7.50936875,21 6.79312576,20.534533 6.47212308,19.8122769 L3,12 C2.44771525,12 2,11.5522847 2,11 C2,10.4477153 2.44771525,10 3,10 L4.11632272,10 L9,3 L10.6274669,4.19016504 L6.57412994,10 Z M5.18999958,12 L8.29999924,19 L15.6962585,19 L18.8099995,12 L5.18999958,12 Z"></path>
+                </svg>
 
-              <div class="col-auto">
-                <button class="button -blue-1-05 size-50 rounded-22 flex-center">
-                  <i class="icon-notification text-20"></i>
-                </button>
-              </div>
-            </div>
-
-            <div class="pl-15">
-              <img src="img/avatars/3.png" alt="image" class="size-50 rounded-22 object-cover">
-            </div>
+                <span class="responsiveFlyoutBasket_itemsCount badge text-dark-1" data-js-element="itemsCount" id="count_carrito">
+                  <?= $num_cart ?>
+                </span>
+              </span>
+            </a>
 
             <div class="d-none xl:d-flex x-gap-20 items-center pl-20" data-x="header-mobile-icons" data-x-toggle="text-white">
               <div><button class="d-flex items-center icon-menu text-20" data-x-click="html, header, header-logo, header-mobile-icons, mobile-menu"></button></div>
@@ -114,7 +187,7 @@
 
       <div class="sidebar -dashboard">
 
-      <div class="sidebar__item">
+        <div class="sidebar__item">
           <div class="sidebar__button">
             <a href="client_dash.php" class="d-flex items-center text-15 lh-1 fw-500">
               <img src="../img/dashboard/sidebar/house.svg" alt="image" class="mr-15">
@@ -152,7 +225,7 @@
 
         <div class="sidebar__item">
           <div class="sidebar__button ">
-            <a href="#" class="d-flex items-center text-15 lh-1 fw-500">
+            <a href="userLogout.php" class="d-flex items-center text-15 lh-1 fw-500">
               <img src="../img/dashboard/sidebar/log-out.svg" alt="image" class="mr-15">
               Cerrar Sesión
             </a>
@@ -189,10 +262,6 @@
               </div>
 
               <div class="col-auto">
-                <button class="tabs__button text-18 lg:text-16 text-light-1 fw-500 pb-5 lg:pb-0 js-tabs-button " data-tab-target=".-tab-item-2">Location Information</button>
-              </div>
-
-              <div class="col-auto">
                 <button class="tabs__button text-18 lg:text-16 text-light-1 fw-500 pb-5 lg:pb-0 js-tabs-button " data-tab-target=".-tab-item-3">Modificar Contraseña</button>
               </div>
 
@@ -205,15 +274,14 @@
 
                 </div>
 
-
-                <div class="col-xl-9">
+                <div class="col-xl-12">
                   <div class="row x-gap-20 y-gap-20">
 
                     <div class="col-md-6">
 
                       <div class="form-input ">
-                        <input type="text" required>
-                        <label class="lh-1 text-16 text-light-1">First Name</label>
+                        <input type="text" id="user_nom" name="user_nom" required value="<?= $user_data['nombre'] ?>">
+                        <label class="lh-1 text-16 text-light-1">Nombre</label>
                       </div>
 
                     </div>
@@ -221,8 +289,8 @@
                     <div class="col-md-6">
 
                       <div class="form-input ">
-                        <input type="text" required>
-                        <label class="lh-1 text-16 text-light-1">Last Name</label>
+                        <input type="text" id="user_ape" name="user_ape" required value="<?= $user_data['apellido'] ?>">
+                        <label class="lh-1 text-16 text-light-1">Apellido</label>
                       </div>
 
                     </div>
@@ -230,8 +298,9 @@
                     <div class="col-md-6">
 
                       <div class="form-input ">
-                        <input type="text" required>
-                        <label class="lh-1 text-16 text-light-1">Email</label>
+                        <input type="text" disabled value="<?= $user_data['email'] ?>">
+                        <br>
+
                       </div>
 
                     </div>
@@ -239,8 +308,8 @@
                     <div class="col-md-6">
 
                       <div class="form-input ">
-                        <input type="text" required>
-                        <label class="lh-1 text-16 text-light-1">Phone Number</label>
+                        <input type="number" id="user_phone" name="user_phone" value="<?= $user_data['phone'] ?>">
+                        <label class="lh-1 text-16 text-light-1">Número de teléfono</label>
                       </div>
 
                     </div>
@@ -248,7 +317,7 @@
                     <div class="col-12">
 
                       <div class="form-input ">
-                        <input type="text" required>
+                        <input type="date" id="user_date" name="user_date" value="<?= $user_data['fechaNac'] ?>">
                         <label class="lh-1 text-16 text-light-1">Fecha de nacimiento</label>
                       </div>
 
@@ -256,129 +325,66 @@
 
                   </div>
                 </div>
-
                 <div class="d-inline-block pt-30">
 
-                  <a href="#" class="button h-50 px-24 -dark-1 bg-blue-1 text-white">
+                  <div onclick="updateUser()" class="button h-50 px-24 -dark-1 bg-blue-1 text-white">
                     Guardar cambios <div class="icon-arrow-top-right ml-15"></div>
-                  </a>
-
-                </div>
-              </div>
-
-              <div class="tabs__pane -tab-item-2">
-                <div class="col-xl-9">
-                  <div class="row x-gap-20 y-gap-20">
-                    <div class="col-12">
-
-                      <div class="form-input ">
-                        <input type="text" required>
-                        <label class="lh-1 text-16 text-light-1">Address Line 1</label>
-                      </div>
-
-                    </div>
-
-                    <div class="col-12">
-
-                      <div class="form-input ">
-                        <input type="text" required>
-                        <label class="lh-1 text-16 text-light-1">Address Line 2</label>
-                      </div>
-
-                    </div>
-
-                    <div class="col-md-6">
-
-                      <div class="form-input ">
-                        <input type="text" required>
-                        <label class="lh-1 text-16 text-light-1">City</label>
-                      </div>
-
-                    </div>
-
-                    <div class="col-md-6">
-
-                      <div class="form-input ">
-                        <input type="text" required>
-                        <label class="lh-1 text-16 text-light-1">State</label>
-                      </div>
-
-                    </div>
-
-                    <div class="col-md-6">
-
-                      <div class="form-input ">
-                        <input type="text" required>
-                        <label class="lh-1 text-16 text-light-1">Select Country</label>
-                      </div>
-
-                    </div>
-
-                    <div class="col-md-6">
-
-                      <div class="form-input ">
-                        <input type="text" required>
-                        <label class="lh-1 text-16 text-light-1">ZIP Code</label>
-                      </div>
-
-                    </div>
-
-                    <div class="col-12">
-                      <div class="d-inline-block">
-
-                        <a href="#" class="button h-50 px-24 -dark-1 bg-blue-1 text-white">
-                          Save Changes <div class="icon-arrow-top-right ml-15"></div>
-                        </a>
-
-                      </div>
-                    </div>
                   </div>
+
                 </div>
               </div>
 
               <div class="tabs__pane -tab-item-3">
                 <div class="col-xl-9">
                   <div class="row x-gap-20 y-gap-20">
-                    <div class="col-12">
+
+
+                    <div class="col-11">
+                      <div class="form-input">
+                        <input type="password" id="currentPassword" name="currentPassword" required value="<?= $user_data['password'] ?>">
+                        <label class="lh-1 text-16 text-light-1">Contraseña actual</label>
+                      </div>
+
+                    </div>
+                    <div class="col-1">
+                      <span class="password-toggle" id="toggleCurrentPassword">👁️</span>
+                    </div>
+
+
+                    <div class="col-11">
 
                       <div class="form-input ">
-                        <input type="text" required>
-                        <label class="lh-1 text-16 text-light-1">Current Password</label>
+                        <input type="password" required id="newPassword" name="newPassword">
+                        <label class="lh-1 text-16 text-light-1">Nueva Contraseña</label>
+                      </div>
+
+                    </div>
+                    <div class="col-1">
+                      <span class="password-toggle" id="toggleNewPassword">👁️</span>
+                    </div>
+
+                    <div class="col-11">
+
+                      <div class="form-input ">
+                        <input type="password" required id="repeatNewPassword" name="repeatNewPassword">
+                        <label class="lh-1 text-16 text-light-1">Repíte la nueva contraseña</label>
                       </div>
 
                     </div>
 
                     <div class="col-12">
-
-                      <div class="form-input ">
-                        <input type="text" required>
-                        <label class="lh-1 text-16 text-light-1">New Password</label>
-                      </div>
-
-                    </div>
-
-                    <div class="col-12">
-
-                      <div class="form-input ">
-                        <input type="text" required>
-                        <label class="lh-1 text-16 text-light-1">New Password Again</label>
-                      </div>
-
-                    </div>
-
-                    <div class="col-12">
-                      <div class="row x-gap-10 y-gap-10">
+                      <div class="row x-gap-20 y-gap-10">
                         <div class="col-auto">
 
-                          <a href="#" class="button h-50 px-24 -dark-1 bg-blue-1 text-white">
-                            Save Changes <div class="icon-arrow-top-right ml-15"></div>
-                          </a>
+                          <div onclick="updatePassword()" class="button h-50 px-24 -dark-1 bg-blue-1 text-white">
+                            Modificar contraseña <div class="icon-arrow-top-right ml-15"></div>
+                          </div>
 
                         </div>
 
-                        <div class="col-auto">
-                          <button class="button h-50 px-24 -blue-1 bg-blue-1-05 text-blue-1">Cancel</button>
-                        </div>
+                        <!-- <div class="col-auto">
+                          <button class="button h-50 px-24 -blue-1 bg-blue-1-05 text-blue-1">Cancelar</button>
+                        </div> -->
                       </div>
                     </div>
                   </div>
@@ -387,40 +393,6 @@
             </div>
           </div>
         </div>
-
-
-        <footer class="footer -dashboard mt-60">
-          <div class="footer__row row y-gap-10 items-center justify-between">
-            <div class="col-auto">
-              <div class="row y-gap-20 items-center">
-                <div class="col-auto">
-                  <div class="text-14 lh-14 mr-30">© 2022 GoTrip LLC All rights reserved.</div>
-                </div>
-
-                <div class="col-auto">
-                  <div class="row x-gap-20 y-gap-10 items-center text-14">
-                    <div class="col-auto">
-                      <a href="#" class="text-13 lh-1">Privacy</a>
-                    </div>
-                    <div class="col-auto">
-                      <a href="#" class="text-13 lh-1">Terms</a>
-                    </div>
-                    <div class="col-auto">
-                      <a href="#" class="text-13 lh-1">Site Map</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-auto">
-              <div class="d-flex x-gap-5 y-gap-5 items-center">
-                <button class="text-14 fw-500 underline">English (US)</button>
-                <button class="text-14 fw-500 underline">USD</button>
-              </div>
-            </div>
-          </div>
-        </footer>
       </div>
     </div>
   </div>
@@ -433,3 +405,123 @@
 </body>
 
 </html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Current Password
+    const toggleCurrentPassword = document.getElementById("toggleCurrentPassword");
+    const currentPasswordInput = document.getElementById("currentPassword");
+
+    toggleCurrentPassword.addEventListener("mousedown", function() {
+      currentPasswordInput.type = "text";
+      toggleCurrentPassword.classList.add("active");
+    });
+
+    toggleCurrentPassword.addEventListener("mouseup", function() {
+      currentPasswordInput.type = "password";
+      toggleCurrentPassword.classList.remove("active");
+    });
+
+    // New Password
+    const toggleNewPassword = document.getElementById("toggleNewPassword");
+    const newPasswordInput = document.getElementById("newPassword");
+
+    toggleNewPassword.addEventListener("mousedown", function() {
+      newPasswordInput.type = "text";
+      toggleNewPassword.classList.add("active");
+    });
+
+    toggleNewPassword.addEventListener("mouseup", function() {
+      newPasswordInput.type = "password";
+      toggleNewPassword.classList.remove("active");
+    });
+  });
+
+
+  function updatePassword() {
+    let currentPassword = $('#currentPassword').val();
+    let newPassword = $('#newPassword').val();
+    let repeatNewPassword = $('#repeatNewPassword').val();
+
+    // Validaciones
+    if (!currentPassword) {
+      alert('Introduzca la contraseña actual');
+      return;
+    }
+    if (!newPassword) {
+      alert('Introduzca la nueva contraseña');
+      return;
+    }
+    if (!repeatNewPassword) {
+      alert('Repita la nueva contraseña');
+      return;
+    }
+    if (newPassword !== repeatNewPassword) {
+      alert('Las contraseñas no coinciden');
+      return;
+    }
+    if (newPassword === currentPassword) {
+      alert('La nueva contraseña no puede ser igual a la contraseña actual');
+      return;
+    }
+
+    $.post('userUpdatePassword.php', {
+      newPassword: newPassword
+    }, function(data) {
+      location.href = 'client_settings.php';
+    });
+  }
+
+  function updateUser() {
+    let user_nom = $('#user_nom').val();
+    let apellido = $('#user_ape').val();
+    let phone = $('#user_phone').val();
+    let date = $("#user_date").val();
+
+    if (!user_nom) {
+      alert('Introduzca un nombre');
+    }
+    if (!apellido) {
+      alert("Introduzca un apellido");
+    }
+    // Asignar null si phone no tiene valor
+    phone = phone || null;
+
+    // Asignar null si date no tiene valor
+    date = date || null;
+    console.log(user_nom);
+    console.log(apellido);
+    console.log(phone);
+    console.log(date);
+
+    $.post('userUpdate.php', {
+        user_nom: user_nom,
+        apellido: apellido,
+        phone: phone,
+        date: date
+      },
+      function(data) {
+        console.log(data);
+        location.href = 'client_settings.php';
+      }
+    );
+  }
+
+  $(document).ready(function() {
+    // Al hacer clic en un botón de pestaña
+    $('.js-tabs-button').click(function() {
+      // Oculta todas las pestañas
+      $('.tabs__pane').removeClass('is-tab-el-active').hide();
+
+      // Obtiene el atributo data-tab-target del botón clicado
+      var target = $(this).data('tab-target');
+
+      // Muestra la pestaña correspondiente al botón clicado
+      $(target).addClass('is-tab-el-active').show();
+
+      // Añade o quita la clase is-tab-el-active según sea necesario
+      $('.js-tabs-button').removeClass('is-tab-el-active');
+      $(this).addClass('is-tab-el-active');
+    });
+  });
+</script>

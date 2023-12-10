@@ -1,21 +1,22 @@
 CREATE DATABASE amazfit;
-
+USE amazfit;
 CREATE TABLE UsuVen (
     emailVen VARCHAR(100) PRIMARY KEY,
     password VARCHAR(50) NOT NULL,
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
-    telefono INT(9) NOT NULL,
+    telefono INT(12) NOT NULL,
     cif VARCHAR(9) NOT NULL,
-    direccion VARCHAR(255) NOT NULL,
-    codigoPostal VARCHAR(5) NOT NULL
+    direccion VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE UsuCli (
     emailCli VARCHAR(100) PRIMARY KEY,
     password VARCHAR(50) NOT NULL,
     nombre VARCHAR(50) NOT NULL,
-    apellido VARCHAR(50) NOT NULL
+    apellido VARCHAR(50) NOT NULL,
+    telefono INT(12) NULL,
+    fechaNacimiento DATE NULL
 );
 
 CREATE TABLE UsuCon (
@@ -84,9 +85,7 @@ CREATE TABLE Producto (
     descuento INT(3),
     stock INT NOT NULL,
     activo BOOLEAN NOT NULL,
-    emailVen VARCHAR(100) NOT NULL,
     nombreCat VARCHAR(100) NOT NULL,
-    FOREIGN KEY (emailVen) REFERENCES UsuVen(emailVen),
     FOREIGN KEY (nombreCat) REFERENCES Categoria(nombreCat)
 );
 
@@ -98,14 +97,23 @@ CREATE TABLE DistribuidoraZona (
     FOREIGN KEY (cif) REFERENCES Distribuidora(cif)
 );
 
+CREATE TABLE Caracteristica (
+    idCaracteristica INT (11) PRIMARY KEY AUTO_INCREMENT,
+    color VARCHAR(50) NULL,
+    talla VARCHAR(50) NULL,
+    emailVen VARCHAR(100) NOT NULL,
+    idProducto INT(11) NOT NULL,
+    FOREIGN KEY (emailVen) REFERENCES UsuVen(emailVen),
+    FOREIGN KEY (idProducto) REFERENCES Producto(idProducto)
+);
+
 CREATE TABLE Cantidad (
     cantidad INT(4) NOT NULL,
-    estado VARCHAR(255) NOT NULL,
-    idProducto INT NOT NULL,
-    idCarrito INT NOT NULL,
+    idCaracteristica INT (11) NOT NULL,
+    idCarrito INT(11) NOT NULL,
     emailCon VARCHAR(100) NOT NULL,
-    PRIMARY KEY (idProducto, idCarrito, emailCon),
-    FOREIGN KEY (idProducto) REFERENCES Producto(idProducto),
+    PRIMARY KEY (idCaracteristica, idCarrito, emailCon),
     FOREIGN KEY (idCarrito) REFERENCES Carrito(idCarrito),
+    FOREIGN KEY (idCaracteristica) REFERENCES Caracteristica(idCaracteristica),
     FOREIGN KEY (emailCon) REFERENCES UsuCon(emailCon)
 );
