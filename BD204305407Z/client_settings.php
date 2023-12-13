@@ -281,7 +281,7 @@ $user_data = [
 
                       <div class="form-input ">
                         <input type="text" id="user_nom" name="user_nom" required value="<?= $user_data['nombre'] ?>">
-                        <label class="lh-1 text-16 text-light-1">Nombre</label>
+                        <label class="lh-1 text-16 text-light-1">Nombre<span style="color: red;">*</span></label>
                       </div>
 
                     </div>
@@ -290,7 +290,7 @@ $user_data = [
 
                       <div class="form-input ">
                         <input type="text" id="user_ape" name="user_ape" required value="<?= $user_data['apellido'] ?>">
-                        <label class="lh-1 text-16 text-light-1">Apellido</label>
+                        <label class="lh-1 text-16 text-light-1">Apellido<span style="color: red;">*</span></label>
                       </div>
 
                     </div>
@@ -367,7 +367,7 @@ $user_data = [
 
                       <div class="form-input ">
                         <input type="password" required id="repeatNewPassword" name="repeatNewPassword">
-                        <label class="lh-1 text-16 text-light-1">Repíte la nueva contraseña</label>
+                        <label class="lh-1 text-16 text-light-1">Repíte la nueva contraseña<span style="color: red;">*</span></label>
                       </div>
 
                     </div>

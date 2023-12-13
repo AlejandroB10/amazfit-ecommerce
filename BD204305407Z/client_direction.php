@@ -193,7 +193,7 @@ if (isset($_SESSION['carrito']['producto'])) {
 
         <div class="sidebar__item">
           <div class="sidebar__button ">
-            <a href="#" class="d-flex items-center text-15 lh-1 fw-500">
+            <a href="userLogout.php"  class="d-flex items-center text-15 lh-1 fw-500">
               <img src="../img/dashboard/sidebar/log-out.svg" alt="image" class="mr-15">
               Cerrar Sesión
             </a>
@@ -234,13 +234,13 @@ if (isset($_SESSION['carrito']['producto'])) {
 
             <div class="tabs__content pt-30 js-tabs-content">
               <div class="col-xl-12 card-content">
-                <div class="row x-gap-20 y-gap-20">
+                <div class="row y-gap-20">
                   <?php
                   $direccion_query = "SELECT * FROM Direccion WHERE emailCli = '$user'";
                   $result = consultar("localhost", "root", "", $direccion_query);
                   while ($fila = mysqli_fetch_array($result)) :
                   ?>
-                    <div class="col-4 border-4 border-light rounded-8">
+                    <div style="margin-left: 10px;margin-right: 10px;" class="col-4  border-4 border-light rounded-8">
                       <div class="max-w-sm mx-auto bg-white shadow-lg rounded-lg">
                         <div class="px-6 py-4">
                           <div class="font-bold text-xl mb-2"><?= $nombre ?> <?= $apellido ?></div>
@@ -487,8 +487,9 @@ if (isset($_SESSION['carrito']['producto'])) {
         }, function(data, status) {
           console.log(data);
           const d = JSON.parse(data);
-          if (status != 'success') {
-            
+
+          if (status == 'success') {
+            location.href="client_direction.php";
           }
         }).fail(function() {
           alertify.error('Error al eliminar la dirección. Tiene asociada alguna órden activa', 3);

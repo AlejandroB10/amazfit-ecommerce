@@ -60,6 +60,8 @@ $ven_data = [
   <!-- Stylesheets -->
   <link rel="stylesheet" href="../css/vendors.css">
   <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" type="text/css" href="../alertifyjs/css/alertify.css">
+  <link rel="stylesheet" type="text/css" href="../alertifyjs/css/themes/default.css">
   <style>
     body {
       display: flex;
@@ -514,7 +516,7 @@ $ven_data = [
                   </div>
                   <div class="d-flex justify-between items-center">
                     <div class="text-14 text-light-1">
-                      <span class="text-20 fw-500 text-dark-1 ml-5"><?= $producto_data['precio'] ?>€</span>
+                      <span class="price_product text-20 fw-500 text-dark-1 ml-5"><?= $producto_data['precio'] ?>€</span>
                     </div>
                     <p class="text-green-2 fw-500 text-14 text-center">Stock</p>
                   </div>
@@ -588,25 +590,28 @@ $ven_data = [
 
 <script>
   $(document).ready(function() {
-    // Selector del contenedor del contador
     var counterContainer = $('.js-counter');
-
-    // Selector del elemento de conteo
     var countElement = counterContainer.find('.js-count');
-
-    // Selector de los botones de incrementar y decrementar
     var incrementButton = counterContainer.find('.js-up');
     var decrementButton = counterContainer.find('.js-down');
-
-    // Valor mínimo y máximo para el contador
+    var priceElement = $('.price_product'); // Ajusta el selector según tu estructura HTML
+    var unitPrice = <?= $producto_data['precio'] ?>; // Precio unitario
     var minValue = 1;
-    var maxValue = <?= $producto_data['stock'] ?>; // Puedes ajustar esto según tus necesidades
+    var maxValue = <?= $producto_data['stock'] ?>;
+
+    // Función para actualizar el precio
+    function updatePrice() {
+      var currentValue = parseInt(countElement.text(), 10);
+      var totalPrice = unitPrice * currentValue;
+      priceElement.text(totalPrice.toFixed(2) + '€'); // Ajusta el formato del precio según tus necesidades
+    }
 
     // Función para incrementar el contador
     incrementButton.on('click', function() {
       var currentValue = parseInt(countElement.text(), 10);
       if (currentValue < maxValue) {
         countElement.text(currentValue + 1);
+        updatePrice();
       }
     });
 
@@ -615,9 +620,11 @@ $ven_data = [
       var currentValue = parseInt(countElement.text(), 10);
       if (currentValue > minValue) {
         countElement.text(currentValue - 1);
+        updatePrice();
       }
     });
   });
+
 
   var selectedElement = null;
 
@@ -646,7 +653,7 @@ $ven_data = [
 
     console.log(selectT);
     console.log(selectedValue);
-    console.log (cantidad);
+    console.log(cantidad);
     if (selectT === 'Seleccione un sabor ' || selectT === 'Seleccione un color ') {
       alertify.error("Por favor, seleccione un sabor/color", 3);
       return;
@@ -670,9 +677,9 @@ $ven_data = [
           let carrito = document.getElementById("count_carrito");
           console.log(carrito);
           carrito.innerHTML = d.numero;
-
-          if(check === 1){
-            location.href="checkout.php"
+          alertify.success("El producto: <?= $producto_data['nombre'] ?>, se ha agregado correctamente al carrito");
+          if (check === 1) {
+            location.href = "checkout.php"
           }
         }
       });

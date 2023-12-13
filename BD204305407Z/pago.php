@@ -597,15 +597,14 @@ if ($producto  != null) {
                         console.log(data);
                         if (d.ok) {
 
+                            $.post('resetPedido.php', {
+                                producto: JSON.stringify(<?= json_encode($producto) ?>)
+                            }, function(data) {
+                                window.open("confirmacion.php?transaccion=" + d.carrito, "_blank");
 
-                            var confirmacionWindow = window.open("confirmacion.php?transaccion=" + d.carrito, "_blank");
-
-                            // Redirige la pestaña actual a client_dash.php
-                            window.location.href = "client_dash.php";
-                            <?php
-                            unset($_SESSION['carrito']);
-                            session_destroy();
-                            ?>
+                                // Redirige la pestaña actual a client_dash.php
+                                window.location.href = "client_dash.php";
+                            });
                         }
                     }
                 );

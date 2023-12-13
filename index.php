@@ -128,7 +128,7 @@ include('conexion.php');
                 <h4 class="text-30 xl:text-24 text-white">Descubre los diferentes tipos de proteína</h4>
 
                 <div class="d-inline-block mt-30">
-                  <a href="#" class="button px-48 py-15 -blue-1 -min-180 bg-white text-dark-1">Consulta precios</a>
+                  <a href="BD204305407Z/categorias.php?nomCat=proteina" class="button px-48 py-15 -blue-1 -min-180 bg-white text-dark-1">Consulta precios</a>
                 </div>
               </div>
             </div>
@@ -147,7 +147,7 @@ include('conexion.php');
                 <h4 class="text-30 xl:text-24 text-white">Descuento en Sudaderas de hasta el 50%!</h4>
 
                 <div class="d-inline-block mt-30">
-                  <a href="#" class="button px-48 py-15 -blue-1 -min-180 bg-white text-dark-1">Consulta precios</a>
+                  <a href="BD204305407Z/categorias.php?nomCat=sudaderaH" class="button px-48 py-15 -blue-1 -min-180 bg-white text-dark-1">Consulta precios</a>
                 </div>
               </div>
             </div>
@@ -167,7 +167,7 @@ include('conexion.php');
                 <h4 class="text-30 xl:text-24 text-white">Los mejores Accesorios para tu deporte</h4>
 
                 <div class="d-inline-block mt-30">
-                  <a href="#" class="button px-48 py-15 -blue-1 -min-180 bg-white text-dark-1">Consulta precios</a>
+                  <a href="BD204305407Z/categorias.php?nomCat=gorras" class="button px-48 py-15 -blue-1 -min-180 bg-white text-dark-1">Consulta precios</a>
                 </div>
               </div>
             </div>
@@ -195,11 +195,12 @@ include('conexion.php');
           $product_query = "SELECT * FROM Producto WHERE nombreCat = 'creatina' AND activo = 1 LIMIT 1";
           $result = consultar("localhost", "root", "", $product_query);
           $fila = mysqli_fetch_array($result);
+          $idProd = $fila['idProducto'];
           ?>
 
           <div data-anim-child="slide-up delay-2" class="col-xl-3 col-lg-3 col-sm-6">
 
-            <a href="activity-single.html" class="activityCard -type-1 rounded-4 ">
+            <a href="BD204305407Z/producto.php?producto=<?= $idProd ?>" class="activityCard -type-1 rounded-4 ">
               <div class="activityCard__image">
 
                 <div class="cardImage ratio ratio-1:1">
@@ -233,7 +234,6 @@ include('conexion.php');
                 </h4>
 
                 <?php
-                $idProd = $fila['idProducto'];
                 $carac_query = "SELECT emailVen FROM Caracteristica WHERE idProducto = '$idProd' LIMIT 1";
                 $result_carac = consultar("localhost", "root", "", $carac_query);
                 $reg_carac = mysqli_fetch_array($result_carac);
@@ -260,11 +260,12 @@ include('conexion.php');
           $product_query = "SELECT * FROM Producto WHERE nombreCat = 'proteina' AND activo = 1 LIMIT 1";
           $result = consultar("localhost", "root", "", $product_query);
           $fila = mysqli_fetch_array($result);
+          $idProd = $fila['idProducto'];
           ?>
 
           <div data-anim-child="slide-up delay-2" class="col-xl-3 col-lg-3 col-sm-6">
 
-            <a href="activity-single.html" class="activityCard -type-1 rounded-4 ">
+            <a href="BD204305407Z/producto.php?producto=<?= $idProd ?>" class="activityCard -type-1 rounded-4 ">
               <div class="activityCard__image">
 
                 <div class="cardImage ratio ratio-1:1">
@@ -298,7 +299,6 @@ include('conexion.php');
                 </h4>
 
                 <?php
-                $idProd = $fila['idProducto'];
                 $carac_query = "SELECT emailVen FROM Caracteristica WHERE idProducto = '$idProd' LIMIT 1";
                 $result_carac = consultar("localhost", "root", "", $carac_query);
                 $reg_carac = mysqli_fetch_array($result_carac);
@@ -325,11 +325,12 @@ include('conexion.php');
           $product_query = "SELECT * FROM Producto WHERE nombreCat = 'pre_workout' AND activo = 1 LIMIT 1";
           $result = consultar("localhost", "root", "", $product_query);
           $fila = mysqli_fetch_array($result);
+          $idProd = $fila['idProducto'];
           ?>
 
           <div data-anim-child="slide-up delay-2" class="col-xl-3 col-lg-3 col-sm-6">
 
-            <a href="activity-single.html" class="activityCard -type-1 rounded-4 ">
+            <a href="BD204305407Z/producto.php?producto=<?= $idProd ?>" class="activityCard -type-1 rounded-4 ">
               <div class="activityCard__image">
 
                 <div class="cardImage ratio ratio-1:1">
@@ -363,7 +364,6 @@ include('conexion.php');
                 </h4>
 
                 <?php
-                $idProd = $fila['idProducto'];
                 $carac_query = "SELECT emailVen FROM Caracteristica WHERE idProducto = '$idProd' LIMIT 1";
                 $result_carac = consultar("localhost", "root", "", $carac_query);
                 $reg_carac = mysqli_fetch_array($result_carac);
@@ -390,11 +390,12 @@ include('conexion.php');
           $product_query = "SELECT * FROM Producto WHERE nombreCat = 'energia' AND activo = 1 LIMIT 1";
           $result = consultar("localhost", "root", "", $product_query);
           $fila = mysqli_fetch_array($result);
+          $idProd = $fila['idProducto'];
           ?>
 
           <div data-anim-child="slide-up delay-2" class="col-xl-3 col-lg-3 col-sm-6">
 
-            <a href="activity-single.html" class="activityCard -type-1 rounded-4 ">
+            <a href="BD204305407Z/producto.php?producto=<?= $idProd ?>" class="activityCard -type-1 rounded-4 ">
               <div class="activityCard__image">
 
                 <div class="cardImage ratio ratio-1:1">
@@ -428,7 +429,7 @@ include('conexion.php');
                 </h4>
 
                 <?php
-                $idProd = $fila['idProducto'];
+
                 $carac_query = "SELECT emailVen FROM Caracteristica WHERE idProducto = '$idProd' LIMIT 1";
                 $result_carac = consultar("localhost", "root", "", $carac_query);
                 $reg_carac = mysqli_fetch_array($result_carac);
@@ -541,7 +542,7 @@ include('conexion.php');
 
           <div class="col-xl col-md-4 col-sm-6">
 
-            <a href="BD204305407Z/categorias.php?nomCat=pantalon_corto" class="tourTypeCard -type-1 d-block rounded-4 bg-white border-light rounded-4">
+            <a href="BD204305407Z/categorias.php?nomCat=crop_top" class="tourTypeCard -type-1 d-block rounded-4 bg-white border-light rounded-4">
               <div class="tourTypeCard__content text-center pt-60 pb-24 px-30">
                 <svg id="mySvg" fill="#041b76" height="64px" width="64px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 407.272 407.272" xml:space="preserve">
                   <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
