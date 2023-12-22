@@ -146,7 +146,7 @@ if (isset($_SESSION['carrito']['producto'])) {
 
         <div class="sidebar__item">
           <div class="sidebar__button -is-active">
-            <a href="client_dash.php" class="d-flex items-center text-15 lh-1 fw-500">
+            <a href="pro_dash.php" class="d-flex items-center text-15 lh-1 fw-500">
               <img src="../img/dashboard/sidebar/house.svg" alt="image" class="mr-15">
               Inicio de tu cuenta
             </a>
@@ -155,7 +155,7 @@ if (isset($_SESSION['carrito']['producto'])) {
 
         <div class="sidebar__item">
           <div class="sidebar__button ">
-            <a href="client_book.php" class="d-flex items-center text-15 lh-1 fw-500">
+            <a href="pro_book.php" class="d-flex items-center text-15 lh-1 fw-500">
               <img src="../img/dashboard/sidebar/sneakers.svg" alt="image" class="mr-15">
               Sus Productos
             </a>
@@ -164,7 +164,7 @@ if (isset($_SESSION['carrito']['producto'])) {
 
         <div class="sidebar__item">
           <div class="sidebar__button ">
-            <a href="client_settings.php" class="d-flex items-center text-15 lh-1 fw-500">
+            <a href="pro_settings.php" class="d-flex items-center text-15 lh-1 fw-500">
               <img src="../img/dashboard/sidebar/gear.svg" alt="image" class="mr-15">
               Detalles de la cuenta
             </a>
@@ -173,16 +173,7 @@ if (isset($_SESSION['carrito']['producto'])) {
 
         <div class="sidebar__item">
           <div class="sidebar__button ">
-            <a href="client_direction.php" class="d-flex items-center text-15 lh-1 fw-500">
-              <img src="../img/dashboard/sidebar/map.svg" alt="image" class="mr-15">
-              Dirección
-            </a>
-          </div>
-        </div>
-
-        <div class="sidebar__item">
-          <div class="sidebar__button ">
-            <a href="userLogout.php" class="d-flex items-center text-15 lh-1 fw-500">
+            <a href="pro_logout.php" class="d-flex items-center text-15 lh-1 fw-500">
               <img src="../img/dashboard/sidebar/log-out.svg" alt="image" class="mr-15">
               Cerrar Sesión
             </a>
@@ -215,7 +206,7 @@ if (isset($_SESSION['carrito']['producto'])) {
             <div class="py-30 px-30 rounded-4 bg-white shadow-3">
               <div class="d-flex justify-between items-center">
                 <h2 class="text-22 lh-1 fw-500">
-                  Pedidos recientes
+                  Productos añadidos recientemente
                 </h2>
 
                 <div>
@@ -227,116 +218,35 @@ if (isset($_SESSION['carrito']['producto'])) {
                 <table class="table-2 col-12">
                   <thead class="">
                     <tr class="text-center">
-                      <th>Número de orden</th>
-                      <th>Items</th>
-                      <th>Total</th>
+                      <th>Nombre producto</th>
+                      <th>Precio</th>
+                      <th>Stock</th>
+                      <th>Descuento</th>
                       <th>Estado</th>
-                      <th>Fecha de Pedido</th>
-                      <th>Fecha de Entrega</th>
-                      <th></th>
                     </tr>
                   </thead>
                   <tbody class="text-center">
 
                     <?php
-                    $pedido_query = "SELECT * FROM Carrito WHERE emailCli = '$user' ORDER BY idCarrito DESC LIMIT 2";
-                    $result = consultar("localhost", "root", "", $pedido_query);
-                    $lastOrderId = null; // Variable para rastrear la última orden procesada
+                    $productos_query = "SELECT * FROM Producto JOIN Caracteristica ON producto.idProducto = caracteristica.idProducto WHERE emailVen = '$user' ORDER BY producto.idProducto DESC LIMIT 2";
+                    $result = consultar("localhost", "root", "", $productos_query);
+                    echo '<script>console.log("Mensaje desde PHP")</script>';
 
                     while ($reg = mysqli_fetch_array($result)) :
-                      $idCarrito = $reg['idCarrito'];
-                      $totalPagado = $reg['totalPagar'];
-                      $estado = $reg['estadoPedido'];
-
-                      if (is_null($reg['fechaEntrega'])) {
-                        $fechaEntrega = 'En trámite';
-                      } else {
-                        $fechaEntrega = date("d/m/Y", strtotime($reg['fechaEntrega']));
-                      }
-
-                      $cantidad_query = "SELECT * FROM Cantidad WHERE idCarrito = '$idCarrito'";
-                      $result_cantidad = consultar("localhost", "root", "", $cantidad_query);
-                      $hay_prducts = mysqli_num_rows($result_cantidad);
-
-                      if ($hay_prducts) {
-                        $prod = array();
-                        while ($fila = mysqli_fetch_array($result_cantidad)) :
-                          $idCaract = $fila['idCaracteristica'];
-                          $prod_query = "SELECT * FROM Caracteristica JOIN Producto ON Caracteristica.idCaracteristica = '$idCaract' AND Producto.idProducto = Caracteristica.idProducto";
-                          $result_prod = consultar("localhost", "root", "", $prod_query);
-
-                          while ($reg_prod = mysqli_fetch_array($result_prod)) :
-                            $cantidad = $fila['cantidad'];
-                            $categoria = $reg_prod['nombreCat'];
-
-                            if ($categoria == 'creatina' or $categoria == 'proteina' or $categoria == 'pre_workout' or $categoria == 'energia') {
-                              array_push($prod, $cantidad . " x " . $reg_prod['nombre'] . " / " . $reg_prod['talla'] . "g / sabor: " . $reg_prod['color']);
-                            } else {
-                              array_push($prod, $cantidad . " x " . $reg_prod['nombre'] . " / " . $reg_prod['talla'] . "/ color: " . $reg_prod['color']);
-                            }
-
-                            $precio = $reg_prod['precio'];
-                            $descuento = $reg_prod['descuento'];
-                            $precio_des = $precio - (($precio * $descuento) / 100);
-                            $subtotal = $cantidad * $precio_des;
-                          endwhile;
-
-                        endwhile;
-
-                        // Verificar si esta orden es diferente a la anterior para imprimir la fila
-                        if ($lastOrderId !== $idCarrito) {
-                    ?>
-                          <tr>
-                            <td>#<?= $idCarrito ?></td>
-                            <td> <?php
-                                  // Supongamos que $prod es un array
-                                  foreach ($prod as $valor) {
-                                    echo $valor . '<br>';
-                                  }
-                                  ?>
-                            </td>
-                            <td class="fw-500"><?php echo number_format($totalPagado, 2, '.', ',') . "€";  ?></td>
-                            <?php
-                            switch ($estado) {
-                              case 'COMPLETED':
-                                echo '<td class="d-flex justify-center"><div class="rounded-100 py-4 col-12 text-center text-14 fw-500 bg-blue-1-05 text-blue-1">Confirmado</div></td>';
-                                break;
-
-                              case 'CANCELED':
-                                echo '<td class="d-flex justify-center"><div class="rounded-100 py-4 text-center col-12 text-14 fw-500 bg-red-3 text-red-2">Cancelado</div></td>';
-                                break;
-
-                              case 'PREPARED':
-                                echo '<td class="d-flex justify-center"><div class="rounded-100 py-4 text-center col-12 text-14 fw-500 bg-brown-1 text-white">Preparado</div></td>';
-                                break;
-
-                              case 'COMING':
-                                echo '<td class="d-flex justify-center"><div class="rounded-100 py-4 text-center col-12 text-14 fw-500 bg-green-2 text-white">En camino</div></td>';
-                                break;
-
-                              case 'DELIVERED':
-                                echo '<td class="d-flex justify-center"><div class="rounded-100 py-4 text-center col-12 text-14 fw-500 bg-success-2 text-white">Entregado</div></td>';
-                                break;
-
-                              case 'RETURNED':
-                                echo '<td class="d-flex justify-center"><div class="rounded-100 py-4 text-center col-12 text-14 fw-500 bg-yellow-4 text-yellow-3">Devuelto</div></td>';
-                                break;
-                            } ?>
-                            <td><?= date("d/m/Y", strtotime($reg['fecha'])) ?><br><?= $reg['hora'] ?></td>
-                            <td><?= $fechaEntrega ?></td>
-                            <td>
-                              <div onclick="showDetails('<?= $idCarrito ?>')" style="border-radius: 10px !important; cursor: pointer;" class="px-4 py-10 text-center col-8 text-14 fw-500 bg-dark-1 text-white">Ver detalles</div>
-                            </td>
-                          </tr>
-                    <?php
-                        }
-                        // Actualizar el último ID de orden
-                        $lastOrderId = $idCarrito;
-                      } else {
-                        echo '<tr class="text-center"><td colspan = "4" class="text-center"><b>Lista vacía</b></td></tr>';
-                      }
-                    endwhile;
-                    ?>
+                      $nombre = $reg['nombre'];
+                      $precio = $reg['precio'];
+                      $stock = $reg['stock'];
+                      $descuento = $reg['descuento'];
+                      $estado = $reg['activo'];
+                      ?>
+                      <tr>
+                        <td><?php echo $nombre; ?></td>
+                        <td>$<?php echo $precio; ?></td>
+                        <td><?php echo $stock; ?></td>
+                        <td><?php echo $descuento; ?>%</td>
+                        <td><?php echo $estado ? 'Activo' : 'Inactivo'; ?></td>
+                      </tr>
+                    <?php endwhile; ?>
                   </tbody>
                 </table>
               </div>
@@ -356,9 +266,3 @@ if (isset($_SESSION['carrito']['producto'])) {
 </body>
 
 </html>
-
-<script>
-  function showDetails(idCarrito) {
-    var confirmacionWindow = window.open("confirmacion.php?transaccion=" + idCarrito, "_blank");
-  }
-</script>
